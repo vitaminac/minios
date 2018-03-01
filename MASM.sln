@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MASM", "MASM\MASM.vcxproj", "{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Debug|x64.ActiveCfg = Debug|x64
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Debug|x64.Build.0 = Debug|x64
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Debug|x86.ActiveCfg = Debug|Win32
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Debug|x86.Build.0 = Debug|Win32
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Release|x64.ActiveCfg = Release|x64
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Release|x64.Build.0 = Release|x64
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Release|x86.ActiveCfg = Release|Win32
+		{40AAD9A6-0C9E-4E56-A56F-1A34C5B2A099}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3197B9F-24BB-4E57-92AE-F08ECF088AA6}
+	EndGlobalSection
+EndGlobal
