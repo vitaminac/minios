@@ -68,6 +68,29 @@ demonstrates_addressing:
     mov al, [bx]
     int 0x10
 
+demonstrates_stack:
+    mov ah, 0x0e
+    ; Set the base of the stack a little above where BIOS
+    ; loads our boot sector - so it won ’t overwrite us.
+    mov bp, 0x8000
+    mov sp, bp
+    ; Push some characters on the stack for later
+    push 'A'
+    push 'B'
+    push 'C'
+
+    pop bx
+    mov al, bl
+    int 0x10
+
+    pop bx
+    mov al, bl
+    int 0x10
+
+    pop bx
+    mov al, bl
+    int 0x10
+
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
 ; In our case , jump to the address of the current
