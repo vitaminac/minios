@@ -3,19 +3,16 @@
 
 ; BIOS likes always to load 
 ; the boot sector to the address 0x7c00
-; tell exactly where you expect the code to loaded in memory
+; tell exactly the assembler 
+; where you expect the code will be loaded in memory
+; <- it will be used as a reference location
+; when you deference an address
 [org 0x7c00]
 
 ; Define a label, that will allow
 ; us to jump back to it
 program:
-
-; prints a message to the screen
-greeting:
-    db 'Booting OS', 0
-
-; int 10/ah=0eh -> scrolling teletype BIOS routine
-    mov ah, 0x0e 
+    mov ah, 0x0e
     mov al, 'H'
     int 0x10
     mov al, 'e'
@@ -59,10 +56,13 @@ demonstrates_addressing:
     ; print the offset of the data
     mov al, the_secret
     int 0x10
-    ; dereference a offset ERROR!
+    ; dereference a offset
+    ; we have to use org 
+    ; to set the correct location
     mov al, [the_secret]
     int 0x10
     ; print the content of the data
+    ; assume we haven't use org
     mov bx, the_secret
     add bx, 0x7c00
     mov al, [bx]
@@ -91,13 +91,29 @@ demonstrates_stack:
     mov al, bl
     int 0x10
 
+greet:
+    mov ah, 0x0e
+    mov bx, GREETING
+    call print_string
+
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
 ; In our case , jump to the address of the current
 ; instruction.
-; loops forever. 
+; loops forever.
+hang: 
     jmp $
 
+; Includes
+%include "print_string.asm"
+
+; Data
+GREETING:
+    ; The zero on the end tells our routine
+    ; when to stop printing characters.
+    db 'Booting OS', 0
+
+; >>>>>>>>>>>>> Padding and magic number <<<<<<<<<<
 ; When compiled , our program must fit into 512 bytes,
 ; with the last two bytes being the magic number,
 ; so here , tell our assembly compiler to pad out our
@@ -108,7 +124,7 @@ demonstrates_stack:
 ; $$ evaluates to the beginning of the current section
 ; so ($−$$) tell you how far into the section
 ; db #value# just the byte #value# 
-times 510 - ( $ - $$ ) db 0
+times 510 - ($ - $$) db 0
 
 ; Last two bytes ( one word ) form the magic number,
 ; so BIOS knows we are a boot sector.
