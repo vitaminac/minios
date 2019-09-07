@@ -94,8 +94,12 @@ demonstrates_stack:
 
 greet:
     mov ah, 0x0e
-    mov bx, GREETING
+    push bp
+    mov bp, sp
+    push GREETING
     call print_string
+    mov sp, bp
+    pop bp
     ; make new call frame
     push bp
     mov bp, sp

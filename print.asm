@@ -2,6 +2,7 @@
 ; int 10/ah=0eh -> scrolling teletype BIOS routine
 print_string:
     mov ah, 0x0e
+    mov bx, [bp-2]
 print_string_while:
     mov al, [bx]
     or al, al
