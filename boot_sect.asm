@@ -1,36 +1,33 @@
 ;
-; A simple boot sector program that 
-; prints a message to the screen
-; loops forever.
-;
-
-; Define a label , " loop ", that will allow
-; us to jump back to it , forever.
-START:
-
-; int 10/ah=0eh -> scrolling teletype BIOS routine
-mov ah, 0x0e 
-mov al, 'H'
-int 0x10
-mov al, 'e'
-int 0x10
-mov al, 'l'
-int 0x10
-mov al, 'l'
-int 0x10
-mov al, 'o'
-int 0x10
-mov al, 0xA
-int 0x10
-
-; Use a simple CPU instruction that jumps
-; to a new memory address to continue execution.
-; In our case , jump to the address of the current
-; instruction.
-jmp $
+; A simple boot sector program
 
 ; BIOS likes always to load 
 ; the boot sector to the address 0x7c00
+; tell exactly where you expect the code to loaded in memory
+[org 0x7c00]
+
+; Define a label, that will allow
+; us to jump back to it
+program:
+
+; prints a message to the screen
+greeting:
+    db 'Booting OS', 0
+
+; int 10/ah=0eh -> scrolling teletype BIOS routine
+    mov ah, 0x0e 
+    mov al, 'H'
+    int 0x10
+    mov al, 'e'
+    int 0x10
+    mov al, 'l'
+    int 0x10
+    mov al, 'l'
+    int 0x10
+    mov al, 'o'
+    int 0x10
+    mov al, 0xA
+    int 0x10
 
 ; Typical lower memory layout afer boot
 
@@ -52,6 +49,31 @@ jmp $
 ; ----------0x400--------------
 ; Interrupt Vector Table (1 KB)
 ; ----------0x0----------------
+
+; declare some data in out program
+the_secret:
+    db "X"
+
+demonstrates_addressing:
+    mov ah, 0x0e
+    ; print the offset of the data
+    mov al, the_secret
+    int 0x10
+    ; dereference a offset ERROR!
+    mov al, [the_secret]
+    int 0x10
+    ; print the content of the data
+    mov bx, the_secret
+    add bx, 0x7c00
+    mov al, [bx]
+    int 0x10
+
+; Use a simple CPU instruction that jumps
+; to a new memory address to continue execution.
+; In our case , jump to the address of the current
+; instruction.
+; loops forever. 
+    jmp $
 
 ; When compiled , our program must fit into 512 bytes,
 ; with the last two bytes being the magic number,
