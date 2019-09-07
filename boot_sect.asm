@@ -95,6 +95,8 @@ greet:
     mov ah, 0x0e
     mov bx, GREETING
     call print_string
+    mov bx, 0x520
+    call print_hex
 
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
@@ -105,13 +107,13 @@ hang:
     jmp $
 
 ; Includes
-%include "print_string.asm"
+%include "print.asm"
 
 ; Data
 GREETING:
     ; The zero on the end tells our routine
     ; when to stop printing characters.
-    db 'Booting OS', 0
+    db 'Booting OS ', 0
 
 ; >>>>>>>>>>>>> Padding and magic number <<<<<<<<<<
 ; When compiled , our program must fit into 512 bytes,
