@@ -24,12 +24,17 @@ print_hex_while_parse:
     jnz print_hex_while_parse
 print_hex_while_print:
     mov ah, 0x0e
-print_hex_while_printing:
     cmp cx, 0
     je print_hex_done
     sub cx, 1
     pop dx
+    cmp dx, 10
+    jge print_hex_print_when_gt_ten
+print_hex_print_when_less_ten:
     add dx, '0'
+    jmp print_hex_while_printing
+print_hex_print_when_gt_ten:
+    add dx, 'a'-10
 print_hex_while_printing:
     mov al, dl
     int 0x10

@@ -98,7 +98,7 @@ greet:
     ; make new call frame
     push bp
     mov bp, sp
-    push 0x520
+    push 0x520f
     call print_hex
     mov sp, bp
     pop bp
