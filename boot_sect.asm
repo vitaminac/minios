@@ -7,6 +7,7 @@
 ; where you expect the code will be loaded in memory
 ; <- it will be used as a reference location
 ; when you deference an address
+; set the data segment register to 0x7c0
 [org 0x7c00]
 
 ; Define a label, that will allow
@@ -102,6 +103,25 @@ greet:
     call print_hex
     mov sp, bp
     pop bp
+
+demonstrates_segment_offsetting:
+    mov ah, 0x0e
+
+    ; Can ’t set ds directly, so set bx
+    mov bx, 0x7c0
+    mov ds, bx
+    mov al, [the_secret]
+    int 0x10
+
+    ; Tell the CPU to use the es (not ds) segment
+    mov al, [es:the_secret]
+    int 0x10
+
+    mov bx, 0x7c0
+    mov es, bx
+    mov al, [es:the_secret]
+    int 0x10
+
 
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
