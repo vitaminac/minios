@@ -13,21 +13,24 @@ print_string_done:
     ret
 
 print_hex:
-    mov ah, 0x0e
     mov cx, 0
+    mov ax, [bp-2]
 print_hex_while_parse:
-    mov dx, bx
+    mov dx, ax
     and dx, 0xf
     push dx
     add cx, 1
-    shr bx, 4
+    shr ax, 4
     jnz print_hex_while_parse
 print_hex_while_print:
+    mov ah, 0x0e
+print_hex_while_printing:
     cmp cx, 0
     je print_hex_done
     sub cx, 1
     pop dx
     add dx, '0'
+print_hex_while_printing:
     mov al, dl
     int 0x10
     jmp print_hex_while_print

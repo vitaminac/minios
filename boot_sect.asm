@@ -95,8 +95,13 @@ greet:
     mov ah, 0x0e
     mov bx, GREETING
     call print_string
-    mov bx, 0x520
+    ; make new call frame
+    push bp
+    mov bp, sp
+    push 0x520
     call print_hex
+    mov sp, bp
+    pop bp
 
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
