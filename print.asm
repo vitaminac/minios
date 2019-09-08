@@ -15,6 +15,11 @@ print_string_done:
 
 print_hex:
     mov cx, 0
+    mov ah, 0x0e
+    mov al, '0'
+    int 0x10
+    mov al, 'x'
+    int 0x10
     mov ax, [bp-2]
 print_hex_while_parse:
     mov dx, ax

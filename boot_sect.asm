@@ -3,30 +3,30 @@
 
 ; BIOS likes always to load 
 ; the boot sector to the address 0x7c00
-; tell exactly the assembler 
+
+; org directive tell the assembler 
 ; where you expect the code will be loaded in memory
-; <- it will be used as a reference location
+; it will be used as a reference location
 ; when you deference an address
-; set the data segment register to 0x7c0
+; assemble will precalculate offset added this value when it is compiled
 [org 0x7c00]
+
+; Stack Segment (SS). Pointer to the stack.
+; Code Segment (CS). Pointer to the code.
+; Data Segment (DS). Pointer to the data.
+; The address used in the instruction mov ax, [0x123f]
+; would by defualt offset from the data segment indexed by ds
+; Extra Segment (ES). Pointer to extra data ('E' stands for 'Extra').
+; F Segment (FS). Pointer to more extra data ('F' comes after 'E').
+; G Segment (GS). Pointer to still more extra data ('G' comes after 'F').
+
+; BIOS stores our boot drive in DL,
+; so it's best to remember this for later.
+mov [BOOT_DRIVE], dl
 
 ; Define a label, that will allow
 ; us to jump back to it
 program:
-    mov ah, 0x0e
-    mov al, 'H'
-    int 0x10
-    mov al, 'e'
-    int 0x10
-    mov al, 'l'
-    int 0x10
-    mov al, 'l'
-    int 0x10
-    mov al, 'o'
-    int 0x10
-    mov al, 0xA
-    int 0x10
-
 ; Typical lower memory layout afer boot
 
 ; Free Memory
@@ -111,7 +111,7 @@ greet:
 demonstrates_segment_offsetting:
     mov ah, 0x0e
 
-    ; Can ’t set ds directly, so set bx
+    ; Can’t set ds directly, so set bx
     mov bx, 0x7c0
     mov ds, bx
     mov al, [the_secret]
@@ -126,6 +126,48 @@ demonstrates_segment_offsetting:
     mov al, [es:the_secret]
     int 0x10
 
+; Read some sectors from the boot disk using our disk_read function
+disk_read:
+    ; set the address that we ’d like BIOS to read the
+    ; sectors to, which BIOS expects to find in ES:BX
+    ; (i.e. segment ES with offset BX).
+
+    ; Load 5 sectors to 0x0000 (ES):0x9000 (BX)
+
+    ; Indirectly set ES to 0x0
+    mov bx, 0x0
+    mov es, bx
+
+    ; Read from the boot disk.
+    mov bx, 0x9000
+    mov dh, 5
+    ; Select BOOT_DRIVE
+    mov dl, [BOOT_DRIVE]
+
+    ; In our case, data will be read to 0x0:0x9000, 
+    ; which the CPU will translate to physical address 0x9000
+    call disk_load
+
+    ; Print out the first loaded word, which
+    ; we expect to be 0xdada , stored
+    ; at address 0x9000
+    mov dx, [es:0x9000]
+    push bp
+    mov bp, sp
+    push dx
+    call print_hex
+    mov sp, bp
+    pop bp
+
+    ; Also , print the first word from the
+    ; 2nd loaded sector : should be 0xface
+    mov dx, [es:0x9000+512]
+    push bp
+    mov bp, sp
+    push dx
+    call print_hex
+    mov sp, bp
+    pop bp
 
 ; Use a simple CPU instruction that jumps
 ; to a new memory address to continue execution.
@@ -137,14 +179,17 @@ hang:
 
 ; Includes
 %include "print.asm"
+%include "disk_io.asm"
 
-; Data
+; Global Variables
 GREETING:
     ; The zero on the end tells our routine
     ; when to stop printing characters.
     db 'Booting OS ', 0
 
-; >>>>>>>>>>>>> Padding and magic number <<<<<<<<<<
+BOOT_DRIVE: db 0
+
+; >>>>>>>>>>> Bootsector padding and magic number <<<<<<<<<<
 ; When compiled , our program must fit into 512 bytes,
 ; with the last two bytes being the magic number,
 ; so here , tell our assembly compiler to pad out our
@@ -161,3 +206,10 @@ times 510 - ($ - $$) db 0
 ; so BIOS knows we are a boot sector.
 ; dw #value# just the word #value# 
 dw 0xaa55
+
+; We know that BIOS will load only the first 512 - byte sector from the disk ,
+; so if we purposely add a few more sectors to our code by repeating some
+; familiar numbers , we can prove to ourselfs that we actually loaded those
+; additional two sectors from the disk we booted from.
+times 256 dw 0xdada
+times 256 dw 0xface
