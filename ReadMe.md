@@ -14,7 +14,6 @@ Install **Bochs** and run **run.sh**
 * [Computer System Engineering](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2018/)
 * [CS 140: Operating Systems (Spring 2019)](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring19/index.php)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
-* [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [Shichao's Notes](https://notes.shichao.io)
 * [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
 * [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/) 
@@ -22,7 +21,15 @@ Install **Bochs** and run **run.sh**
 * [The GNU C Library](https://www.gnu.org/software/libc/manual/html_node)
 * [Intel® 64 and IA-32 Architectures Software Developer’s Manuals](https://software.intel.com/en-us/articles/intel-sdm)
 
-## Linux Source Code
+## Source Code
+
+* [MS DOS](https://github.com/microsoft/MS-DOS)
+* [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
+* [Reactos](https://github.com/reactos/reactos)
+* [FreeBSD](https://github.com/freebsd/freebsd)
+* [OpenBSD](https://www.openbsd.org/)
+
+### [Linux](https://github.com/torvalds/linux)
 
 * [irq_vectors.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/irq_vectors.h)
 * [idt.c](https://github.com/torvalds/linux/blob/master/arch/x86/kernel/idt.c)
