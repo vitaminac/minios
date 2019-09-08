@@ -8,7 +8,11 @@ Install **Bochs** and run **run.sh**
 * [The little book about OS development
 ](https://littleosbook.github.io/)
 * [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
+* [操作系统原理(Operating Systems)](https://www.coursera.org/learn/os-pku)
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [15-410, Operating System Design and Implementation, Carnegie Mellon](https://www.cs.cmu.edu/~410/)
+* [Computer System Engineering](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2018/)
+* [CS 140: Operating Systems (Spring 2019)](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring19/index.php)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
 * [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [Shichao's Notes](https://notes.shichao.io)
