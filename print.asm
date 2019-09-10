@@ -1,8 +1,9 @@
 ; prints a message to the screen
 ; int 10/ah=0eh -> scrolling teletype BIOS routine
+; Define a label, that will allow
+; us to jump back to it
 print_string:
     mov ah, 0x0e
-    mov bx, [bp-2]
 print_string_while:
     mov al, [bx]
     or al, al
@@ -11,39 +12,4 @@ print_string_while:
     add bx, 1
     jmp print_string_while
 print_string_done:
-    ret
-
-print_hex:
-    mov cx, 0
-    mov ah, 0x0e
-    mov al, '0'
-    int 0x10
-    mov al, 'x'
-    int 0x10
-    mov ax, [bp-2]
-print_hex_while_parse:
-    mov dx, ax
-    and dx, 0xf
-    push dx
-    add cx, 1
-    shr ax, 4
-    jnz print_hex_while_parse
-print_hex_while_print:
-    mov ah, 0x0e
-    cmp cx, 0
-    je print_hex_done
-    sub cx, 1
-    pop dx
-    cmp dx, 10
-    jge print_hex_print_when_gt_ten
-print_hex_print_when_less_ten:
-    add dx, '0'
-    jmp print_hex_while_printing
-print_hex_print_when_gt_ten:
-    add dx, 'a'-10
-print_hex_while_printing:
-    mov al, dl
-    int 0x10
-    jmp print_hex_while_print
-print_hex_done:
     ret
