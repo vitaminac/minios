@@ -2,3 +2,4 @@
 # a floppy disk inserted into a computer at boot time .
 floppya: 1 _44=boot_sect.bin, status=inserted
 boot: a
+display_library: win32, options="gui_debug"
