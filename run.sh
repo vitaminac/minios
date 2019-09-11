@@ -1,9 +1,9 @@
 # compile kernel
-gcc -ffreestanding -c kernel.c -o kernel.o
-ld -o kernel.bin -Ttext 0x1000 kernel.o --oformat binary
+gcc -ffreestanding -c ./kernel/kernel.c -o ./out/kernel.o
+ld -o ./out/kernel.bin -Ttext 0x1000 ./out/kernel.o --oformat binary
 # build boot sect
-nasm ./boot_sect.asm -f bin -o ./boot_sect.bin
+nasm -i ./boot/ ./boot/boot_sect.asm -f bin -o ./out/boot_sect.bin
 # combine
-cat boot_sect.bin kernel.bin > os.img
+cat ./out/boot_sect.bin ./out/kernel.bin > os.img
 # run bochs
 bochsdbg.exe
