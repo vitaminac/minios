@@ -81,11 +81,9 @@ switch_to_pm:
     jmp CODE_SEG:init_pm
 
 Hang:
-    ; Use a simple CPU instruction that jumps
-    ; to a new memory address to continue execution.
-    ; In our case,
-    ; jump to the address of the current instruction.
-    ; and loops forever.
+    ; Jumps to a new memory address to continue execution.
+    ; In our case, jump to the address of the current instruction.
+    ; Hang forever when we return from the kernel
     jmp $
 
 ; Includes
