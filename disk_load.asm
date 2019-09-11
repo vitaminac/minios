@@ -38,12 +38,8 @@ disk_load:
     ret
 
 disk_error:
-    push bp
-    mov bp, sp
-    push DISK_ERROR_MSG
+    mov bx, DISK_ERROR_MSG
     call print_string
-    mov sp, bp
-    pop bp
     jmp $
 
 ; Disk Message

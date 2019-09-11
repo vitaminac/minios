@@ -1,5 +1,5 @@
 # Tell bochs to use our boot sector code as though it were
 # a floppy disk inserted into a computer at boot time .
-floppya: 1 _44=boot_sect.bin, status=inserted
+floppya: 1 _44=os.img, status=inserted
 boot: a
 display_library: win32, options="gui_debug"

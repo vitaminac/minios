@@ -29,10 +29,56 @@
 ; Interrupt Vector Table (1 KB)
 ; ----------0x0----------------
 
+; This is the memory offset to which we will load our kernel
+KERNEL_OFFSET equ 0x1000
+
+[bits 16]
 Boot:
-    ; Greet when we start
+    ; BIOS stores our boot drive in DL,
+    ; so it's best to remember this for later.
+    mov [BOOT_DRIVE], dl
+
+    ; Announce that we are starting
+    ; booting from 16-bit real mode
     mov bx, MSG_REAL_MODE
     call print_string
+
+; Load our kernel
+load_kernel:
+    ; Print a message to say we are loading the kernel
+    mov bx, MSG_LOAD_KERNEL
+    call print_string
+    ; we load the first 15 sectors that (excluding the boot sector)
+    mov dh, 15;
+    ; from the boot disk
+    mov dl, [BOOT_DRIVE]
+    ; to address KERNEL_OFFSET
+    mov bx, KERNEL_OFFSET
+    ; load kernel code
+    call disk_load 
+
+; Switch to protected mode
+switch_to_pm:
+    ; We must switch of interrupts until we have
+    ; set -up the protected mode interrupt vector
+    ; otherwise interrupts will run riot.
+    cli
+
+    ; Load our global descriptor table,
+    ; which defines the protected mode segments
+    lgdt [gdt_descriptor]
+
+    ; To make the switch to protected mode,
+    ; we set the first bit of CR0, a control register
+    mov eax, cr0
+    or eax, 0x1
+    mov cr0 , eax
+
+    ; Make a far jump ( i.e. to a new segment ) to our 32-bit code.
+    ; This also forces the CPU to flush
+    ; its cache of prefetched and real-mode decoded instructions,
+    ; which can cause problems.
+    jmp CODE_SEG:init_pm
 
 Hang:
     ; Use a simple CPU instruction that jumps
@@ -43,10 +89,44 @@ Hang:
     jmp $
 
 ; Includes
-%include "print.asm"
+%include "print_string.asm"
+%include "disk_load.asm"
+%include "gdt.asm"
+
+[bits 32]
+; Initialise registers and the stack once in PM.
+init_pm:
+    ; Now in PM , our old segments are meaningless,
+    ; so we point our segment registers to the
+    ; data selector we defined in our GDT
+
+    ; Stack Segment (SS). Pointer to the stack.
+    ; Code Segment (CS). Pointer to the code.
+    ; Data Segment (DS). Pointer to the data.
+    ; The address used in the instruction mov ax, [0x123f]
+    ; would by default offset from the data segment indexed by ds
+    ; Extra Segment (ES). Pointer to extra data ('E' stands for 'Extra').
+    ; F Segment (FS). Pointer to more extra data ('F' comes after 'E').
+    ; G Segment (GS). Pointer to still more extra data ('G' comes after 'F').
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov ss, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+
+    ; Update our stack position so it is right
+    ; at the top of the free space.
+    mov ebp, 0x90000
+    mov esp, ebp
+
+    ; Finally, jump to the address of our loaded kernel code
+    call KERNEL_OFFSET
 
 ; Global Variables
+BOOT_DRIVE: db 0
 MSG_REAL_MODE: db "Booting from 16-bit Real Mode", 10, 0
+MSG_LOAD_KERNEL db "Loading kernel into memory", 10, 0
 
 ; >>>>>>>>>>> Bootsector padding and magic number <<<<<<<<<<
 ; When compiled, our program must fit into 512 bytes,
