@@ -30,7 +30,10 @@ Install **Bochs** and run **run.sh**
 ## Book
 
 * The Design of the UNIX Operating System
+* Operating System Concepts
+* Computer Systems: A Programmer's Perspective
 * Understanding the Linux kernel
+* The Essentials of Computer Organization and Architecture
 
 ## Source Code
 
