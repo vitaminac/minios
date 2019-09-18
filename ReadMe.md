@@ -4,7 +4,7 @@ Install **Bochs** and run **run.sh**
 
 ## Reference
 
-* [Writing a Simple Operating System from Scratch](https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
+* [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
 * [The little book about OS development](https://littleosbook.github.io/)
 * [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
@@ -13,7 +13,7 @@ Install **Bochs** and run **run.sh**
 * [Shichao's Notes](https://notes.shichao.io)
 * [How to write a simple operating system](http://mikeos.sourceforge.net/write-your-own-os.html)
 * [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
-* [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/) 
+* [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/)
 * [The Linux Documentation Project](https://www.tldp.org)
 * [The GNU C Library](https://www.gnu.org/software/libc/manual/html_node)
 * [Intel® 64 and IA-32 Architectures Software Developer’s Manuals](https://software.intel.com/en-us/articles/intel-sdm)
