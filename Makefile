@@ -1,6 +1,7 @@
 # Automatically generate lists of sources using wildcards
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c)
-HEADERS = $(wildcard kernel/*.h drivers /*.h)
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c)
+INC_DIR = .
+CFLAGS= -fno-pic -fno-pie -ffreestanding -m32 -Wall -I $(INC_DIR) -std=gnu11
 
 # Convert the *.c filenames to *.o to give a list of object files to build
 OBJ = ${C_SOURCES:.c=.o}
@@ -8,8 +9,8 @@ OBJ = ${C_SOURCES:.c=.o}
 # Generic rule for compiling C code to an object file
 # For simplicity , we C files depend on all header files
 # $< is the first dependancy and $@ is the target file
-%.o: %.c ${HEADERS}
-	gcc -fno-pic -fno-pie -ffreestanding -m32 -c $< -o $@
+%.o: %.c
+	gcc ${CFLAGS} -c $< -o $@
 
 # Build the kernel entry object file
 kernel_entry.o: ./boot/kernel_entry.asm
