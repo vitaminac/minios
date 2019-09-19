@@ -34,6 +34,7 @@ Install **Bochs** and run **run.sh**
 * Computer Systems: A Programmer's Perspective
 * Understanding the Linux kernel
 * The Essentials of Computer Organization and Architecture
+* Windows Internals
 
 ## Source Code
 
