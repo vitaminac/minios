@@ -1,6 +1,6 @@
 # Mini Operating System From Zero
 
-Install **Bochs** and run **run.sh**
+Install **QEMU** and run **make run**
 
 ## Reference
 

@@ -1,7 +1,7 @@
 # Automatically generate lists of sources using wildcards
 C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c)
 INC_DIR = .
-CFLAGS= -fno-pic -fno-pie -ffreestanding -m32 -Wall -I $(INC_DIR) -std=gnu11
+CFLAGS= -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=gnu11 -g
 
 # Convert the *.c filenames to *.o to give a list of object files to build
 OBJ = ${C_SOURCES:.c=.o}
@@ -24,6 +24,10 @@ kernel_entry.o: ./boot/kernel_entry.asm
 kernel.bin: kernel_entry.o ${OBJ}
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
 
+# Used for debugging purposes
+kernel.elf: kernel_entry.o ${OBJ}
+	ld -m elf_i386 -o $@ -Ttext 0x1000 $^
+
 # Assemble the boot sector to raw machine code
 # The -I options tells nasm where to find our useful assembly
 # routines that we include in boot_sect . asm
@@ -33,7 +37,7 @@ boot_sect.bin: ./boot/boot_sect.asm
 # This is the actual disk image that the computer loads ,
 # which is the combination of our compiled bootsector and kernel
 os.img: boot_sect.bin kernel.bin
-	cat $^ > os.img
+	cat $^ > $@
 
 # Default build target .
 all: os.img
@@ -41,8 +45,8 @@ all: os.img
 # Clear away all generated files .
 clean:
 	rm ${OBJ}
-	rm -fr *.bin *.dis *.o os.img *.map
+	rm -fr *.bin *.dis *.o os.img *.map *.elf
 
-# Run bochs to simulate booting of our code .
-run: all
-	bochsdbg.exe
+# Run bochs to simulate booting of our code
+run: all kernel.elf
+	qemu-system-i386 -s -nographic -fda os.img -d guest_errors,int & gdb -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
