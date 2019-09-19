@@ -7,3 +7,11 @@ void memory_copy(char *source, char *dest, int no_bytes)
         *(dest + i) = *(source + i);
     }
 }
+
+void memory_fill(char *source, int no_bytes, char *value, int value_size)
+{
+    for (int i = 0; i < no_bytes; i++, source++)
+    {
+        *source = *(value + (i % value_size));
+    }
+}

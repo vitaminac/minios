@@ -71,7 +71,7 @@ void print_char(char character, int col, int row, char attribute_byte)
      */
     unsigned char *vidmem = (unsigned char *)VIDEO_ADDRESS;
 
-    /* If attribute byte is zero , assume the default style . */
+    /* If attribute byte is zero , assume the blank style . */
     if (!attribute_byte)
     {
         attribute_byte = WHITE_ON_BLACK;
@@ -117,25 +117,20 @@ void print_char(char character, int col, int row, char attribute_byte)
     set_cursor_offset(offset);
 }
 
-extern void print(char *string)
+void print(char *string)
 {
     // Loop through each char of the message and print it.
     for (; *string; string++)
     {
-        // At the address pointed to by video_memory, store the character
+        // print the character pointed to by string
         print_char(*string, -1, -1, 0);
     }
 }
 
-extern void clear()
+void clear()
 {
+    char blank[2] = {' ', WHITE_ON_BLACK};
     int screen_size = MAX_COLS * MAX_ROWS;
-    char *screen = VIDEO_ADDRESS;
-
-    for (int i = 0; i < screen_size; i++)
-    {
-        screen[i * 2] = ' ';
-        screen[i * 2 + 1] = WHITE_ON_BLACK;
-    }
+    memory_fill(VIDEO_ADDRESS, screen_size * 2, blank, 2);
     set_cursor_offset(GET_SCREEN_OFFSET(0, 0));
 }

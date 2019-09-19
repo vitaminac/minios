@@ -1,5 +1,5 @@
 #include "port.h"
-#include "libc/util.h"
+#include "libc/memory.h"
 
 #define VIDEO_ADDRESS 0xb8000
 #define MAX_ROWS 25
@@ -16,5 +16,5 @@
 #define GET_OFFSET_ROW(OFFSET) (OFFSET / (2 * MAX_COLS))
 #define GET_OFFSET_COL(OFFSET) ((OFFSET - (GET_OFFSET_ROW(OFFSET) * 2 * MAX_COLS)) / 2)
 
-extern void clear();
-extern void print(char *string);
+void clear();
+void print(char *string);
