@@ -40,6 +40,7 @@ all: os.img
 
 # Clear away all generated files .
 clean:
+	rm ${OBJ}
 	rm -fr *.bin *.dis *.o os.img *.map
 
 # Run bochs to simulate booting of our code .
