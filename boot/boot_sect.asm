@@ -80,12 +80,6 @@ switch_to_pm:
     ; which can cause problems.
     jmp CODE_SEG:init_pm
 
-Hang:
-    ; Jumps to a new memory address to continue execution.
-    ; In our case, jump to the address of the current instruction.
-    ; Hang forever when we return from the kernel
-    jmp $
-
 ; Includes
 %include "print_string.asm"
 %include "disk_load.asm"
@@ -120,6 +114,12 @@ init_pm:
 
     ; Finally, jump to the address of our loaded kernel code
     call KERNEL_OFFSET
+
+Hang:
+    ; Jumps to a new memory address to continue execution.
+    ; In our case, jump to the address of the current instruction.
+    ; Hang forever when we return from the kernel
+    jmp $
 
 ; Global Variables
 BOOT_DRIVE: db 0
