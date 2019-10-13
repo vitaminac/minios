@@ -6,6 +6,7 @@ Install **QEMU** and run **make run**
 
 * [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
+* [30 day Make OS](https://github.com/yourtion/30dayMakeOS)
 * [The little book about OS development](https://littleosbook.github.io/)
 * [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
@@ -43,6 +44,7 @@ Install **QEMU** and run **make run**
 * [Reactos](https://github.com/reactos/reactos)
 * [FreeBSD](https://github.com/freebsd/freebsd)
 * [OpenBSD](https://www.openbsd.org/)
+* [TencentOS-tiny](https://github.com/Tencent/TencentOS-tiny)
 
 ### [Linux](https://github.com/torvalds/linux)
 
