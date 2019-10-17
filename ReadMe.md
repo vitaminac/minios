@@ -2,7 +2,7 @@
 
 Install **QEMU** and run **make run**
 
-## Reference
+## Tutorial
 
 * [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
@@ -14,6 +14,10 @@ Install **QEMU** and run **make run**
 * [Shichao's Notes](https://notes.shichao.io)
 * [How to write a simple operating system](http://mikeos.sourceforge.net/write-your-own-os.html)
 * [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
+* [Operating Systems Course Notes Main Page](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/)
+
+## Reference
+
 * [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/)
 * [The Linux Documentation Project](https://www.tldp.org)
 * [The GNU C Library](https://www.gnu.org/software/libc/manual/html_node)
