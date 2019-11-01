@@ -34,10 +34,11 @@ Install **QEMU** and run **make run**
 
 ## Book
 
-* The Design of the UNIX Operating System
 * Operating System Concepts
+* The Design of the UNIX Operating System
 * Computer Systems: A Programmer's Perspective
 * Understanding the Linux kernel
+* Linux Kernel Development
 * The Essentials of Computer Organization and Architecture
 * Windows Internals
 
