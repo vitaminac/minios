@@ -46,6 +46,7 @@ Install **QEMU** and run **make run**
 
 * [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Boot OS](https://github.com/nanochess/bootOS)
+* [darwin-xnu](https://github.com/apple/darwin-xnu)
 * [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [Reactos](https://github.com/reactos/reactos)
 * [FreeBSD](https://github.com/freebsd/freebsd)
