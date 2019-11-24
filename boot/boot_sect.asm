@@ -1,4 +1,9 @@
-; A boot sector that boots a C kernel in 32-bit protected mode
+; A boot sector that boots from 16-bits mode into 32-bit protected mode and load a C kernel
+
+; When we reboot our computer, it doesn't have any notion of an operating system.
+; Luckily, we do have the Basic Input/Output Software (BIOS), 
+; a collection of software routines that are initially loaded from a chip into memory 
+; and initialised when the computer is switched on.
 
 ; BIOS likes always to load 
 ; the boot sector to the address 0x7c00
@@ -32,6 +37,18 @@
 ; This is the memory offset to which we will load our kernel
 KERNEL_OFFSET equ 0x1000
 
+; When the CPU runs in its intial 16-bit real mode,
+; the maximum size of the registers is 16 bits,
+; which means that the highest address 
+; we can reference in an instruction is 0xffff (64 KB = 65536 bytes)
+; the CPU designers added a few more special registers,
+; cs, ds, ss, and es, called segment registers
+; We can imagine main memory as being divided into segments 
+; that are indexed by the segment registers
+; the CPU will offset our address from 
+; the segment register appropriate for the context of our instruction
+; To calculate the absolute address the CPU multiplies the value 
+; in the segment register by 16 and then adds your offset address
 [bits 16]
 Boot:
     ; BIOS stores our boot drive in DL,
@@ -41,6 +58,22 @@ Boot:
     ; Announce that we are starting
     ; booting from 16-bit real mode
     mov bx, MSG_REAL_MODE
+    
+    ; At the CPU level a function is nothing more than 
+    ; a jump to the address of a useful routine 
+    ; then a jump back again to the instruction 
+    ; immediately following the first jump
+    ; the caller and callee must have some agreement 
+    ; on where and how many parameters will be passed
+    ; the caller code could store the correct return address
+    ; in some well-known location,
+    ; then the called code could jump back to that stored address.
+    ; The CPU keeps track of the current instruction 
+    ; being executed in the special register ip
+    ;  the CPU provides a pair of instructions, call and ret, 
+    ; call behaves like jmp but additionally, 
+    ; before actually jumping, pushes the return address on to the stack; 
+    ; ret then pops the return address off the stack and jumps to it
     call print_string
 
 ; Load our kernel
@@ -50,79 +83,26 @@ load_kernel:
     call print_string
     ; we load the first 15 sectors that (excluding the boot sector)
     mov dh, 15;
-    ; from the boot disk
+    ; read from the boot disk
     mov dl, [BOOT_DRIVE]
-    ; to address KERNEL_OFFSET
+    ; set the address that we'd like BIOS to read the sectors to
     mov bx, KERNEL_OFFSET
     ; load kernel code
-    call disk_load 
+    call disk_load
+    ; switch to 32-bits protected mode
+    call switch_to_pm
 
-; Switch to protected mode
-switch_to_pm:
-    ; We must switch of interrupts until we have
-    ; set -up the protected mode interrupt vector
-    ; otherwise interrupts will run riot.
-    cli
-
-    ; Load our global descriptor table,
-    ; which defines the protected mode segments
-    lgdt [gdt_descriptor]
-
-    ; To make the switch to protected mode,
-    ; we set the first bit of CR0, a control register
-    mov eax, cr0
-    or eax, 0x1
-    mov cr0 , eax
-
-    ; Make a far jump ( i.e. to a new segment ) to our 32-bit code.
-    ; This also forces the CPU to flush
-    ; its cache of prefetched and real-mode decoded instructions,
-    ; which can cause problems.
-    jmp CODE_SEG:init_pm
-
-; Includes
+; Includes our useful routines
 %include "print_string.asm"
 %include "disk_load.asm"
-%include "gdt.asm"
+%include "switch_to_pm.asm"
 
-[bits 32]
-; Initialise registers and the stack once in PM.
-init_pm:
-    ; Now in PM , our old segments are meaningless,
-    ; so we point our segment registers to the
-    ; data selector we defined in our GDT
-
-    ; Stack Segment (SS). Pointer to the stack.
-    ; Code Segment (CS). Pointer to the code.
-    ; Data Segment (DS). Pointer to the data.
-    ; The address used in the instruction mov ax, [0x123f]
-    ; would by default offset from the data segment indexed by ds
-    ; Extra Segment (ES). Pointer to extra data ('E' stands for 'Extra').
-    ; F Segment (FS). Pointer to more extra data ('F' comes after 'E').
-    ; G Segment (GS). Pointer to still more extra data ('G' comes after 'F').
-    mov ax, DATA_SEG
-    mov ds, ax
-    mov ss, ax
-    mov es, ax
-    mov fs, ax
-    mov gs, ax
-
-    ; Update our stack position so it is right
-    ; at the top of the free space.
-    mov ebp, 0x90000
-    mov esp, ebp
-
-    ; Finally, jump to the address of our loaded kernel code
-    call KERNEL_OFFSET
-
-Hang:
-    ; Jumps to a new memory address to continue execution.
-    ; In our case, jump to the address of the current instruction.
-    ; Hang forever when we return from the kernel
-    jmp $
-
+; db = declare bytes of data which tells the assembler
+; to write the subsequent bytes directly to the binary output file
+; we often use a label to mark the start of our data
 ; Global Variables
-BOOT_DRIVE: db 0
+BOOT_DRIVE: db 0 ; drive 0 (first floppy drive)
+; 10 is ascii code for line change and 0 is null character
 MSG_REAL_MODE: db "Booting from 16-bit Real Mode", 10, 0
 MSG_LOAD_KERNEL db "Loading kernel into memory", 10, 0
 
@@ -138,7 +118,7 @@ MSG_LOAD_KERNEL db "Loading kernel into memory", 10, 0
 ; db #value# just the byte #value# 
 times 510 - ($ - $$) db 0
 
-; Last two bytes ( one word ) form the magic number,
+; Last two bytes ( one word ) make up the magic number,
 ; so BIOS knows we are a boot sector.
 ; dw #value# just the word #value# 
 dw 0xaa55

@@ -117,7 +117,7 @@ void print_char(char character, int col, int row, char attribute_byte)
     set_cursor_offset(offset);
 }
 
-void print(char *string)
+extern void print(char *string)
 {
     // Loop through each char of the message and print it.
     for (; *string; string++)
@@ -127,7 +127,17 @@ void print(char *string)
     }
 }
 
-void clear()
+extern void print_at(char *string, int col, int row)
+{
+    // Update the cursor if col and row not negative .
+    if (col >= 0 && row >= 0)
+    {
+        set_cursor_offset(GET_SCREEN_OFFSET(col, row));
+    }
+    print(string);
+}
+
+extern void clear()
 {
     char blank[2] = {' ', WHITE_ON_BLACK};
     int screen_size = MAX_COLS * MAX_ROWS;

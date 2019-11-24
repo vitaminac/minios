@@ -1,16 +1,16 @@
 # Mini Operating System From Zero
 
-Install **QEMU** and run **make run**
+Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", etc.
+Install **Bochs** and run **make run**
 
 ## Tutorial
 
 * [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 * [os-tutorial](https://github.com/cfenollosa/os-tutorial)
+* [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
 * [30 day Make OS](https://github.com/yourtion/30dayMakeOS)
 * [The little book about OS development](https://littleosbook.github.io/)
 * [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
-* [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
-* [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
 * [Shichao's Notes](https://notes.shichao.io)
 * [How to write a simple operating system](http://mikeos.sourceforge.net/write-your-own-os.html)
 * [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
@@ -25,9 +25,8 @@ Install **QEMU** and run **make run**
 
 ## Course
 
-* [18-447 Introduction to Computer Architecture](https://www.ece.cmu.edu/~ece447/)
-* [操作系统原理(Operating Systems)](https://www.coursera.org/learn/os-pku)
 * [6.S081: Operating System Engineering, MIT](https://pdos.csail.mit.edu/6.828/)
+* [操作系统原理(Operating Systems)](https://www.coursera.org/learn/os-pku)
 * [15-410, Operating System Design and Implementation, Carnegie Mellon](https://www.cs.cmu.edu/~410/)
 * [CS 140: Operating Systems (Spring 2019)](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring19/index.php)
 * [Computer System Engineering](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2018/)
@@ -44,8 +43,11 @@ Install **QEMU** and run **make run**
 
 ## Source Code
 
+* [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Boot OS](https://github.com/nanochess/bootOS)
+* [IncludeOS](https://github.com/includeos/IncludeOS)
+* [BareMetal-OS-legacy](https://github.com/ReturnInfinity/BareMetal-OS-legacy)
 * [darwin-xnu](https://github.com/apple/darwin-xnu)
 * [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [Reactos](https://github.com/reactos/reactos)
