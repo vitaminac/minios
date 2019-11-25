@@ -8,12 +8,6 @@ static void timer_callback(registers_t regs)
 {
     static tick = 0;
     tick++;
-    print("Tick: ");
-
-    char tick_ascii[256];
-    str(tick, 10, tick_ascii);
-    print(tick_ascii);
-    print("\n");
 }
 
 void init_timer(nat32 freq)

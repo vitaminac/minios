@@ -50,6 +50,7 @@ Install **Bochs** and run **make run**
 * [TencentOS-tiny](https://github.com/Tencent/TencentOS-tiny)
 * [Hurlex II](https://github.com/hurley25/Hurlex-II)
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
+* [LiteOS](https://gitee.com/LiteOS)
 
 ### [Linux](https://github.com/torvalds/linux)
 
