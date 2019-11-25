@@ -7,7 +7,7 @@ Install **Bochs** and run **make run**
 ## Tutorial
 
 - [x] [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
-- [ ] [os-tutorial](https://github.com/cfenollosa/os-tutorial)
+- [x] [os-tutorial](https://github.com/cfenollosa/os-tutorial)
 - [ ] [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 - [ ] [The little book about OS development](https://littleosbook.github.io/)
 - [ ] [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
@@ -34,6 +34,9 @@ Install **Bochs** and run **make run**
 - [ ] Linux Kernel Development
 - [ ] The Essentials of Computer Organization and Architecture
 - [ ] Windows Internals
+- [ ] Operating Systems: Design and Implementation
+- [ ] Modern Operating Systems
+- [ ] [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
 
 ## Source Code
 
