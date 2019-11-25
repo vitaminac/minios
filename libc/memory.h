@@ -1,3 +1,6 @@
+#ifndef MEMORY_H
+#define MEMORY_H
+
 #include "cpu/types.h"
 
 void memory_copy(char *source, char *dest, nat32 no_bytes);
@@ -7,3 +10,5 @@ int *malloc(nat32 size);
 #define high_16(address) (nat16)(((address) >> 16) & 0xFFFF)
 #define low_8(address) (nat16)((address)&0xFF)
 #define high_8(address) (nat16)(((address) >> 8) & 0xFF)
+
+#endif

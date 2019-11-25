@@ -1,3 +1,6 @@
+#ifndef SCREEN_H
+#define SCREEN_H
+
 /*
 When most computers boot, despite that they may infact have more advanced graphics hardware, 
 they begin in a simple Video Graphics Array (VGA) colour text mode with dimmensions 80x25 characters.
@@ -51,3 +54,5 @@ that is stopping the work from being finished.
 extern void clear();
 extern void print(char *string);
 extern void print_at(char *string, int col, int row);
+
+#endif
