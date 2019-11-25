@@ -32,7 +32,7 @@ or if there was some error
 that is stopping the work from being finished.
 */
 
-#include "port.h"
+#include "cpu/port.h"
 #include "libc/memory.h"
 
 // display buffer
