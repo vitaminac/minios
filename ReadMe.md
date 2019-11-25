@@ -8,10 +8,10 @@ Install **Bochs** and run **make run**
 
 - [x] [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 - [ ] [os-tutorial](https://github.com/cfenollosa/os-tutorial)
+- [ ] [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
+- [ ] [The little book about OS development](https://littleosbook.github.io/)
 - [ ] [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
 - [ ] [30 day Make OS](https://github.com/yourtion/30dayMakeOS)
-- [ ] [The little book about OS development](https://littleosbook.github.io/)
-- [ ] [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 - [ ] [Shichao's Notes](https://notes.shichao.io)
 - [ ] [How to write a simple operating system](http://mikeos.sourceforge.net/write-your-own-os.html)
 - [ ] [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
