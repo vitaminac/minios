@@ -1,5 +1,5 @@
 # Automatically generate lists of sources using wildcards
-C_SOURCES = $(wildcard kernel/*.c drivers/*.c libc/*.c)
+C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c)
 INC_DIR = .
 # The option -ffreestanding directs the compiler 
 # to not assume that standard functions 
@@ -7,7 +7,7 @@ INC_DIR = .
 CFLAGS= -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -g
 
 # Convert the *.c filenames to *.o to give a list of object files to build
-OBJ = ${C_SOURCES:.c=.o}
+OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 
 # Generic rule for compiling C code to an object file
 # The compiler outputs annotated machine code,
@@ -24,13 +24,12 @@ OBJ = ${C_SOURCES:.c=.o}
 %.o: %.c
 	gcc ${CFLAGS} -c $< -o $@
 
-# Build the kernel entry object file
 # The option -f elf tells the assembler 
 # to output an object file of the particular format Executable 
 # and Linking Format (ELF), 
 # which is the default format output by out C compiler
-kernel_entry.o: ./kernel/kernel_entry.asm
-	nasm  $< -f elf -o $@
+%.o: %.asm
+	nasm $< -f elf -o $@
 
 # In order to create the actual executable code
 # we have to use a linker, 
@@ -58,12 +57,13 @@ kernel_entry.o: ./kernel/kernel_entry.asm
 # the kernel_entry, which jumps to main() in our kernel
 # the compiled C kernel
 # Build the kernel binary
+# The final ELF will have following format .text - .rodata - .data
 # $^ is substituted with all of the target's dependancy files
-kernel.bin: kernel_entry.o ${OBJ}
+kernel.bin: kernel/kernel_entry.o ${OBJ}
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
 
 # Used for debugging purposes
-kernel.elf: kernel_entry.o ${OBJ}
+kernel.elf: kernel/kernel_entry.o ${OBJ}
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^
 
 # Assemble the boot sector to raw machine code

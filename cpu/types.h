@@ -8,4 +8,8 @@ typedef          short int16;
 typedef unsigned char  nat8;
 typedef          char  int8;
 
+typedef int            bool;
+#define true 1
+#define false 0
+
 #endif
