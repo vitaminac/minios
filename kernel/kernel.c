@@ -25,7 +25,7 @@ void main()
 
     while (true)
     {
-        print("\n> ");
+        print(">");
         scanf(input);
         if (strcmp(input, "END") == 0)
         {
@@ -33,7 +33,20 @@ void main()
             __asm__ __volatile__("hlt"); // TODO: close power
             return;
         }
-        print("You said: ");
-        print(input);
+        else if (strcmp(input, "MALLOC") == 0)
+        {
+            int *phys_addr = malloc(50);
+            char phys_str[16] = "";
+            str(phys_addr, 16, phys_str);
+            print("physical address: ");
+            print(phys_str);
+            print("\n");
+        }
+        else
+        {
+            print("You said: ");
+            print(input);
+            print("\n");
+        }
     }
 }

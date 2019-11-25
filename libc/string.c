@@ -11,8 +11,17 @@ void str(int n, int base, char *destination)
     }
     do
     {
-        buffer[i++] = n % base + '0';
+        buffer[i] = n % base;
+        if (buffer[i] >= 10)
+        {
+            buffer[i] = buffer[i] - 10 + 'a';
+        }
+        else
+        {
+            buffer[i] += '0';
+        }
         n /= base;
+        ++i;
     } while (n > 0);
     for (int j = (negative) ? 1 : 0; i > 0;)
     {

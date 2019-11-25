@@ -83,7 +83,7 @@ load_kernel:
     call print_string
     ; we load the first 15 sectors that (excluding the boot sector)
     ; we must increment this value when kernel size go over 16kb
-    mov dh, 32;
+    mov dh, 40;
     ; read from the boot disk
     mov dl, [BOOT_DRIVE]
     ; set the address that we'd like BIOS to read the sectors to
