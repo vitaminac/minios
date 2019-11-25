@@ -1,5 +1,6 @@
 ; Defined in isr.c
 [extern isr_handler]
+[extern irq_handler]
 
 ; Common ISR code
 isr_common_stub:

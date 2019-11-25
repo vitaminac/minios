@@ -37,37 +37,61 @@ extern void isr29();
 extern void isr30();
 extern void isr31();
 
-/* IRQ definitions */
+// https://en.wikipedia.org/wiki/Interrupt_request_(PC_architecture)
+// Interrupt request
+// Master PIC
+// IRQ 0 – system timer
 #define IRQ0 32
 extern void irq0();
+// IRQ 1 – keyboard controller
 #define IRQ1 33
 extern void irq1();
+// IRQ 2 – cascaded signals from IRQs 8–15
 #define IRQ2 34
 extern void irq2();
+// IRQ 3 – serial port controller for serial port 2
 #define IRQ3 35
 extern void irq3();
+// IRQ 4 – serial port controller for serial port 1
 #define IRQ4 36
 extern void irq4();
+// IRQ 5 – parallel port 2 and 3  or  sound card
 #define IRQ5 37
 extern void irq5();
+// IRQ 6 – floppy disk controller
 #define IRQ6 38
 extern void irq6();
+// IRQ 7 – parallel port 1. 
+// It is used for printers or for any parallel port if a printer is not present. 
+// It can also be potentially be shared 
+// with a secondary sound card with careful management of the port.
 #define IRQ7 39
 extern void irq7();
+// IRQ 8 – real-time clock (RTC)
 #define IRQ8 40
 extern void irq8();
+// IRQ 9 – Advanced Configuration and Power Interface (ACPI) system control interrupt on Intel chipsets.
+// Other chipset manufacturers might use another interrupt for this purpose, 
+// or make it available for the use of peripherals 
+// (any devices configured to use IRQ 2 will actually be using IRQ 9)
 #define IRQ9 41
 extern void irq9();
+// IRQ 10 – The Interrupt is left open for the use of peripherals
 #define IRQ10 42
 extern void irq10();
+// IRQ 11 – The Interrupt is left open for the use of peripherals
 #define IRQ11 43
 extern void irq11();
+// IRQ 12 – mouse on PS/2 connector
 #define IRQ12 44
 extern void irq12();
+// IRQ 13 – CPU co-processor  or  integrated floating point unit  or  inter-processor interrupt
 #define IRQ13 45
 extern void irq13();
+// IRQ 14 – primary ATA channel (ATA interface usually serves hard disk drives and CD drives)
 #define IRQ14 46
 extern void irq14();
+// IRQ 15 – secondary ATA channel
 #define IRQ15 47
 extern void irq15();
 

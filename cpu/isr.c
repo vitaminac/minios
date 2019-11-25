@@ -74,6 +74,8 @@ void isr_install()
     set_idt_gate(IRQ15, (nat32)irq15);
 
     set_idt(); // Load with ASM
+    /* Enable interruptions */
+    __asm__ __volatile__("sti");
 }
 
 void isr_handler(registers_t r)
