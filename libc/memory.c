@@ -3,8 +3,7 @@
 /* Copy bytes from one place to another */
 extern void memory_copy(char *source, char *dest, nat32 no_bytes)
 {
-    int i;
-    for (i = 0; i < no_bytes; i++)
+    for (nat32 i = 0; i < no_bytes; i++)
     {
         *(dest + i) = *(source + i);
     }
@@ -18,12 +17,14 @@ extern void memory_fill(char *source, int no_bytes, char *value, nat32 value_siz
     }
 }
 
-int *malloc(nat32 size)
+extern ptr const malloc(nat32 nBytes)
 {
-    static nat32 free_mem_addr = 0x10000;
-    int *ret = free_mem_addr;
-    free_mem_addr += size; /* Remember to increment the pointer */
-    free_mem_addr &= 0xFFFFF000;
-    free_mem_addr += 0x1000;
+    static word free_mem_addr = 0x10000;
+    ptr const ret = (ptr) free_mem_addr;
+    free_mem_addr += nBytes;
+    if (free_mem_addr & WORD_MASK) {
+        free_mem_addr &= ~WORD_MASK;
+        free_mem_addr += WORD_SIZE;
+    }
     return ret;
 }

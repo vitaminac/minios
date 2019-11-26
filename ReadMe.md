@@ -1,6 +1,6 @@
 # Mini Operating System From Zero
 
-Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", etc.
+Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 
 Install **Bochs** and run **make run**
 
@@ -12,6 +12,7 @@ Install **Bochs** and run **make run**
 - [ ] [The little book about OS development](https://littleosbook.github.io/)
 - [ ] [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
 - [ ] [30 day Make OS](https://github.com/yourtion/30dayMakeOS)
+- [ ] [Writing an OS in Rust](https://os.phil-opp.com/)
 - [ ] [Shichao's Notes](https://notes.shichao.io)
 - [ ] [How to write a simple operating system](http://mikeos.sourceforge.net/write-your-own-os.html)
 - [ ] [Operating Systems Study Guide](http://faculty.salina.k-state.edu/tim/ossg)
@@ -19,29 +20,44 @@ Install **Bochs** and run **make run**
 
 ## Course
 
-- [ ] [6.S081: Operating System Engineering, MIT](https://pdos.csail.mit.edu/6.828/)
+- [ ] [Harvard CS 61: Systems Programming and Machine Organization - WeensyOS](https://cs61.seas.harvard.edu/site/2019/)
+- [ ] [Harvard CS 161: Operating Systems - Chickadee OS](https://read.seas.harvard.edu/cs161/2020/)
+- [ ] [MIT 6.S081: Operating System Engineering - Xv6](https://pdos.csail.mit.edu/6.828/2020/)
+- [ ] [Stanford CS 140: Operating Systems - PintOS](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring20/index.php)
+- [ ] [THU Operating Systems - rCore OS](http://os.cs.tsinghua.edu.cn/oscourse/OS2020spring)
+- [ ] [Udacity: GT Introduction to Operating Systems](https://www.udacity.com/course/introduction-to-operating-systems--ud923)
+- [ ] [Udacity: GT Refresher - Advanced OS](https://www.udacity.com/course/gt-refresher-advanced-os--ud098)
+- [ ] [Udacity: GT Advanced Operating Systems](https://www.udacity.com/course/advanced-operating-systems--ud189)
+- [ ] [Udacity: GT Embedded Systems](https://www.udacity.com/course/embedded-systems--ud169)
+- [ ] [UIC CS385: Operating Systems](https://cs385.class.uic.edu/)
 - [ ] [操作系统原理(Operating Systems)](https://www.coursera.org/learn/os-pku)
-- [ ] [15-410, Operating System Design and Implementation, Carnegie Mellon](https://www.cs.cmu.edu/~410/)
-- [ ] [CS 140: Operating Systems (Spring 2019)](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring19/index.php)
-- [ ] [Computer System Engineering](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2018/)
+- [ ] [Carnegie Mellon 15-410: Operating System Design and Implementation](https://www.cs.cmu.edu/~410/)
+- [ ] [CS401: Operating Systems](https://learn.saylor.org/course/CS401)
+- [ ] [ILLINOIS URBANA-CHAMPAIGN ECE 391: Computer Systems Engineering](https://courses.grainger.illinois.edu/ece391)
 
 ## Book
 
+- [ ] [Computer Systems: A Programmer's Perspective](https://csapp.cs.cmu.edu/)
+- [ ] [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
+- [ ] [Operating Systems: Principles and Practice](http://ospp.cs.washington.edu/)
+- [ ] Operating Systems: Internals and Design Principles
 - [ ] Operating System Concepts
 - [ ] The Design of the UNIX Operating System
-- [ ] Computer Systems: A Programmer's Perspective
 - [ ] Understanding the Linux kernel
 - [ ] Linux Kernel Development
 - [ ] The Essentials of Computer Organization and Architecture
 - [ ] Windows Internals
 - [ ] Operating Systems: Design and Implementation
 - [ ] Modern Operating Systems
-- [ ] [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
+- [ ] Distributed Systems: Principles and Practice
+- [ ] The C Programming Language
 
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
+* [Biscuit research OS](https://github.com/mit-pdos/biscuit)
+* [WSL2](https://github.com/microsoft/WSL2-Linux-Kernel)
 * [Boot OS](https://github.com/nanochess/bootOS)
 * [IncludeOS](https://github.com/includeos/IncludeOS)
 * [BareMetal-OS-legacy](https://github.com/ReturnInfinity/BareMetal-OS-legacy)
@@ -50,10 +66,19 @@ Install **Bochs** and run **make run**
 * [Reactos](https://github.com/reactos/reactos)
 * [FreeBSD](https://github.com/freebsd/freebsd)
 * [OpenBSD](https://www.openbsd.org/)
+* [Minix 3](http://gerrit.minix3.org)
 * [TencentOS-tiny](https://github.com/Tencent/TencentOS-tiny)
+* [RT-Thread](https://github.com/RT-Thread/rt-thread)
+* [Grub](https://github.com/coreos/grub)
+* [µC/OS-III](https://github.com/SiliconLabs/uC-OS3)
+* [FreeRTOS](https://github.com/FreeRTOS/FreeRTOS)
+* [LiteOS](https://gitee.com/LiteOS)
+* [AliOS](https://github.com/alibaba/AliOS-Things)
+* [ROS](https://github.com/ros/ros)
+* [ROS2](https://github.com/ros2/ros2)
+* [OpenRC](https://github.com/OpenRC/openrc)
 * [Hurlex II](https://github.com/hurley25/Hurlex-II)
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
-* [LiteOS](https://gitee.com/LiteOS)
 
 ### [Linux](https://github.com/torvalds/linux)
 
