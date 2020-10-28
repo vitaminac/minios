@@ -1,8 +1,6 @@
 # Mini Operating System From Zero
 
-Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900"
-
-Install **Bochs** and run **make run**
+Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", "quit", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900".
 
 ## Tutorial
 

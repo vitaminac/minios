@@ -92,6 +92,3 @@ clean:
 # Run bochs to simulate booting of our code
 debug: all kernel.elf
 	qemu-system-i386 -s -vnc :0 -fda os.img -d guest_errors,int & gdb -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
-
-run: all
-	bochsdbg.exe
