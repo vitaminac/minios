@@ -1,6 +1,12 @@
 # Mini Operating System From Zero
 
-Install **QEMU** and run **make debug** and then you can use any gdb command for example "break main", "continue", "list", "quit", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900".
+## WSL Dev Environment Setup
+
+    sudo apt install qemu qemu-system-x86 gcc gdb nasm
+
+## Debug
+
+Run **make debug** and then you can use any gdb command for example "break main", "continue", "list", "quit", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900".
 
 ## Tutorial
 
@@ -53,6 +59,7 @@ Install **QEMU** and run **make debug** and then you can use any gdb command for
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [Busybox](https://git.busybox.net/busybox/)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Biscuit research OS](https://github.com/mit-pdos/biscuit)
 * [WSL2](https://github.com/microsoft/WSL2-Linux-Kernel)
@@ -67,7 +74,7 @@ Install **QEMU** and run **make debug** and then you can use any gdb command for
 * [Minix 3](http://gerrit.minix3.org)
 * [TencentOS-tiny](https://github.com/Tencent/TencentOS-tiny)
 * [RT-Thread](https://github.com/RT-Thread/rt-thread)
-* [Grub](https://github.com/coreos/grub)
+* [Grub2](https://www.gnu.org/software/grub/grub-download.html)
 * [µC/OS-III](https://github.com/SiliconLabs/uC-OS3)
 * [FreeRTOS](https://github.com/FreeRTOS/FreeRTOS)
 * [LiteOS](https://gitee.com/LiteOS)
@@ -77,6 +84,7 @@ Install **QEMU** and run **make debug** and then you can use any gdb command for
 * [OpenRC](https://github.com/OpenRC/openrc)
 * [Hurlex II](https://github.com/hurley25/Hurlex-II)
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
+* [Syslinux](https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git)
 
 ### [Linux](https://github.com/torvalds/linux)
 

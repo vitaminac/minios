@@ -81,8 +81,8 @@ load_kernel:
     ; Print a message to say we are loading the kernel
     mov bx, MSG_LOAD_KERNEL
     call print_string
-    ; we load the first 15 sectors that (excluding the boot sector)
-    ; we must increment this value when kernel size go over 16kb
+    ; we load the first 40 sectors that (excluding the boot sector)
+    ; we must increment this value when kernel size go over 20kb
     mov dh, 40;
     ; read from the boot disk
     mov dl, [BOOT_DRIVE]

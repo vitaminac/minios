@@ -4,7 +4,7 @@
 ; Sector: the circular track is divided into sectors, usually of capacity 512 bytes
 ; load DH sectors to ES:BX from drive DL
 disk_load:
-    ;  the CPU has a limited number of registers 
+    ; the CPU has a limited number of registers 
     ; for the temporary storage of our routine’s local variables
     ; So, the CPU offers two instructions push and pop that allow us, 
     ; respectively, to store a value and retrieve a value from the top of the stack, 
@@ -50,7 +50,7 @@ disk_load:
     jc disk_error ; Jump if error (i.e. carry flag set)
 
     ; This jumps if what BIOS reported as the number of sectors
-    ;  actually read in AL is not equal to the number we expected.
+    ; actually read in AL is not equal to the number we expected.
     pop dx ; Restore DX from the stack
     cmp dh, al ; if AL ( sectors read ) != DH ( sectors expected )
     jne disk_error ; display error message
