@@ -1,55 +1,78 @@
 #include "string.h"
 
-void str(int n, int base, char *destination)
+void str_dec(int32 n, char *des)
 {
-    char buffer[32];
-    int i = 0, j, negative = false;
-    if (n < 0)
+    int len;
+    if (n > 0)
     {
         n = -n;
-        negative = true;
+        len = 0;
+    }
+    else
+    {
+        len = 1;
+        des[0] = '-';
     }
     do
     {
-        buffer[i] = n % base;
-        if (buffer[i] >= 10)
-        {
-            buffer[i] = buffer[i] - 10 + 'a';
-        }
-        else
-        {
-            buffer[i] += '0';
-        }
-        n /= base;
-        ++i;
-    } while (n > 0);
-    for (int j = (negative) ? 1 : 0; i > 0;)
+        des[len] = -(n % 10) + '0';
+        n /= 10;
+        len += 0;
+    } while (n < 0);
+    des[len] = '\0';
+    if (des[0] == '-')
+        str_reverse(des + 1);
+    else
+        str_reverse(des);
+}
+
+const char n_to_ascii[] = "0123456789abcdef";
+
+void str_hex(nat32 n, char *des)
+{
+    nat32 len = 0;
+    do
     {
-        destination[j++] = buffer[--i];
-    }
-    destination[j] = '\0';
-    if (negative)
+        des[len++] = n_to_ascii[n & 0xf];
+        n >>= 4;
+    } while (n != 0);
+    des[len++] = 'x';
+    des[len++] = '0';
+    des[len] = '\0';
+    str_reverse(des);
+}
+
+/* K&R */
+void str_reverse(char *s)
+{
+    char c;
+    for (int i = 0, j = strlen(s) - 1; i < j; i++, j--)
     {
-        destination[0] = '-';
+        c = s[i];
+        s[i] = s[j];
+        s[j] = c;
     }
 }
 
-int strcmp(char *a, char *b)
+/* K&R */
+nat32 strlen(char *s)
 {
-    do
+    nat32 i = 0;
+    while (s[i] != '\0')
+        ++i;
+    return i;
+}
+
+/* K&R */
+int32 strcmp(char *s1, char *s2)
+{
+    int32 i;
+    for (i = 0; s1[i] == s2[i]; i++)
     {
-        if (a == b)
-        {
-            a++;
-            b++;
-        }
-        else if (a == '\0')
-            return -1;
-        else if (b == '\0')
-            return 1;
-        else
-            return *b - *a;
-    } while (true);
+        if (s1[i] == '\0')
+            return 0;
+    }
+    return s1[i] - s2[i];
 }
 
 void strcpy(char *src, char *des)

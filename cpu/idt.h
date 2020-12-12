@@ -1,7 +1,7 @@
 #ifndef IDT_H
 #define IDT_H
 
-#include "types.h"
+#include "libc/types.h"
 #include "libc/memory.h"
 
 // Segment selectors

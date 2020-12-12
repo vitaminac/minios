@@ -1,18 +1,13 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include "cpu/types.h"
+#include "libc/types.h"
 
-void str(int n, int base, char* destination);
-inline void int_to_ascii(int n, char* destination)
-{
-    str(n, 10, destination);
-}
-inline void hex_to_ascii(int n, char* destination)
-{
-    str(n, 16, destination);
-}
-int strcmp(char *a, char *b);
+void str_dec(int32 n, char *des);
+void str_hex(nat32 n, char *des);
+void str_bin(int32 n, char *des);
+nat32 strlen(char *s);
+int32 strcmp(char *s1, char *s2);
 void strcpy(char *src, char *des);
 
 #endif

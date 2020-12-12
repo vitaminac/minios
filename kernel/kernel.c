@@ -37,7 +37,7 @@ void main()
         {
             int *phys_addr = malloc(50);
             char phys_str[16] = "";
-            str(phys_addr, 16, phys_str);
+            str_hex(phys_addr, phys_str);
             print("physical address: ");
             print(phys_str);
             print("\n");

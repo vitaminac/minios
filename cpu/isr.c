@@ -43,17 +43,7 @@ void isr_install()
     set_idt_gate(30, (nat32)isr30);
     set_idt_gate(31, (nat32)isr31);
 
-    // Remap the irq table
-    port_byte_out(0x20, 0x11);
-    port_byte_out(0xA0, 0x11);
-    port_byte_out(0x21, 0x20);
-    port_byte_out(0xA1, 0x28);
-    port_byte_out(0x21, 0x04);
-    port_byte_out(0xA1, 0x02);
-    port_byte_out(0x21, 0x01);
-    port_byte_out(0xA1, 0x01);
-    port_byte_out(0x21, 0x0);
-    port_byte_out(0xA1, 0x0);
+    pci_init();
 
     // Install the IRQs
     set_idt_gate(IRQ0, (nat32)irq0);
@@ -118,7 +108,7 @@ void isr_handler(registers_t r)
 {
     print("received interrupt: ");
     char s[3];
-    str(r.int_no, 10, s);
+    str_dec(r.int_no, s);
     print(s);
     print("\n");
     print(exception_messages[r.int_no]);

@@ -1,6 +1,6 @@
 #include "port.h"
 
-nat8 port_byte_in(nat16 port)
+byte port_byte_in(nat16 port)
 {
     // A handy C wrapper function that reads a byte from the specified port
     // "=a" ( result ) means : put AL register in variable RESULT when finished
@@ -24,4 +24,13 @@ nat16 port_word_in (nat16 port) {
 
 void port_word_out (nat16 port, nat16 data) {
     __asm__ __volatile__("out %%ax, %%dx" : : "a" (data), "d" (port));
+}
+
+// https://wiki.osdev.org/Inline_Assembly/Examples#IO_WAIT
+// use another I/O cycle on an 'unused' port
+void io_wait()
+{
+    /* Port 0x80 is used for 'checkpoints' during POST. */
+    /* The Linux kernel seems to think it is free for use :-/ */
+    __asm__ __volatile__( "outb %%al, $0x80" : : "a"(0));
 }

@@ -2,10 +2,10 @@
 #define TYPES_H
 
 typedef          int   word;
-#define WORD_SIZE sizeof(word)
-#define WORD_MASK (WORD_SIZE - 1)
-typedef          void*  ptr;
-typedef          char   byte;
+#define                WORD_SIZE     sizeof(word)
+#define                WORD_MASK     (WORD_SIZE - 1)
+typedef          void* ptr;
+typedef unsigned char  byte;
 
 // CPU specific
 typedef unsigned int   nat32;
@@ -16,7 +16,7 @@ typedef unsigned char  nat8;
 typedef          char  int8;
 
 typedef          int   bool;
-#define true 1
-#define false 0
+#define                true          1
+#define                false         0
 
 #endif
