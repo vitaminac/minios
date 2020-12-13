@@ -2,7 +2,8 @@
 
 ## WSL Dev Environment Setup
 
-    sudo apt install qemu qemu-system-x86 gcc gdb nasm
+    sudo apt update
+    sudo apt install build-essential nasm gcc g++ gdb qemu qemu-system-x86
 
 ## Debug
 
