@@ -99,6 +99,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 * [fork.c](https://github.com/torvalds/linux/blob/master/kernel/fork.c)
 * [copy.S](https://github.com/torvalds/linux/blob/master/arch/x86/boot/copy.S)
 * [sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h)
+* [mem.c](https://github.com/torvalds/linux/blob/master/drivers/char/mem.c)
 
 ## Reference
 
