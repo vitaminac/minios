@@ -58,7 +58,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 - [ ] Modern Operating Systems
 - [ ] Distributed Systems: Principles and Practice
 - [ ] The C Programming Language
-- [ ] Linux Device Drivers
+- [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 
 ## Source Code
 
