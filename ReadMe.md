@@ -50,7 +50,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 - [ ] Operating Systems: Internals and Design Principles
 - [ ] Operating System Concepts
 - [ ] The Design of the UNIX Operating System
-- [ ] Understanding the Linux kernel
+- [ ] Understanding The Linux Kernel
 - [ ] Linux Kernel Development
 - [ ] The Essentials of Computer Organization and Architecture
 - [ ] Windows Internals
@@ -58,6 +58,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 - [ ] Modern Operating Systems
 - [ ] Distributed Systems: Principles and Practice
 - [ ] The C Programming Language
+- [ ] Linux Device Drivers
 
 ## Source Code
 
