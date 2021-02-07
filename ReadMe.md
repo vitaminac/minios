@@ -90,7 +90,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
 * [Syslinux](https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git)
 
-### [Linux](https://github.com/torvalds/linux)
+### [Linux](https://elixir.bootlin.com/linux/latest/source)
 
 * [irq_vectors.h](https://github.com/torvalds/linux/blob/master/arch/x86/include/asm/irq_vectors.h)
 * [idt.c](https://github.com/torvalds/linux/blob/master/arch/x86/kernel/idt.c)
@@ -104,6 +104,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 ## Reference
 
 * [OS Dev](https://wiki.osdev.org)
+* [Linux Kernel Teaching](https://linux-kernel-labs.github.io/refs/heads/master/index.html)
 * [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/)
 * [The Linux Documentation Project](https://www.tldp.org)
 * [The GNU C Library](https://www.gnu.org/software/libc/manual/html_node)
