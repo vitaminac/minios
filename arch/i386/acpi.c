@@ -13,7 +13,7 @@ static b16 SLP_TYPb;
 static struct acpi_fadt *fadt;
 
 // initialization
-static struct acpi_rsdp *seacrh_RSDP_from_BIOS_memory(void);
+static struct acpi_rsdp *search_RSDP_from_BIOS_memory(void);
 static struct acpi_rsdt *fetch_and_validate_RSDT_from_RSDP(struct acpi_rsdp *rsdp);
 static struct acpi_fadt *search_FADT_from_RSDT(struct acpi_rsdt *rsdt);
 static struct acpi_dsdt *fetch_and_validate_DSDT_from_FADT(struct acpi_fadt *fadt);
@@ -28,7 +28,7 @@ STATUS acpi_init(void)
     struct acpi_dsdt *dsdt;
     byte *S5_address;
 
-    if ((rsdp = seacrh_RSDP_from_BIOS_memory()) == NULL)
+    if ((rsdp = search_RSDP_from_BIOS_memory()) == NULL)
     {
         return ENODEV;
     }
@@ -79,7 +79,7 @@ STATUS acpi_init(void)
     return SUCCESS;
 }
 
-static struct acpi_rsdp *seacrh_RSDP_from_BIOS_memory(void)
+static struct acpi_rsdp *search_RSDP_from_BIOS_memory(void)
 {
     nat32 i = 0;
     struct acpi_rsdp *rsdp;
@@ -190,7 +190,7 @@ static STATUS ensure_acpi_is_enabled(struct acpi_fadt *fadt)
         acpi_enable_SCI(fadt);
         while (!acpi_is_enabled(fadt) && attempts-- > 0)
         {
-            ;
+            io_wait();
         }
         if (!acpi_is_enabled(fadt))
         {

@@ -1,5 +1,5 @@
 #include "keyboard.h"
-#include "cpu/port.h"
+#include "libc/pio.h"
 #include "cpu/isr.h"
 #include "screen.h"
 #include "libc/string.h"
@@ -21,7 +21,7 @@ const char sc_ascii[] = {'?', '?', '1', '2', '3', '4', '5', '6',
 static void keyboard_callback(registers_t regs)
 {
     /* The PIC leaves us the scancode in port 0x60 */
-    nat8 scancode = port_byte_in(0x60);
+    nat8 scancode = in_byte(0x60);
 
     if (scancode > SC_MAX)
         return;

@@ -11,13 +11,13 @@ void pci_init()
 {
     // save masks
     byte b1, b2;
-    b1 = port_byte_in(PIC_MASTER_DATA_PORT);
-    b2 = port_byte_in(PIC_SLAVE_DATA_PORT);
+    b1 = in_byte(PIC_MASTER_DATA_PORT);
+    b2 = in_byte(PIC_SLAVE_DATA_PORT);
 
     // When you enter protected mode the first command you will need to give the two PICs is the initialise command (code 0x11)
-    port_byte_out(PIC_MASTER_COMMAND_PORT, PIC_INITIALIZATION_COMMAND);
+    out_byte(PIC_MASTER_COMMAND_PORT, PIC_INITIALIZATION_COMMAND);
     io_wait();
-    port_byte_out(PIC_SLAVE_COMMAND_PORT, PIC_INITIALIZATION_COMMAND);
+    out_byte(PIC_SLAVE_COMMAND_PORT, PIC_INITIALIZATION_COMMAND);
     io_wait();
     /**
      * https://wiki.osdev.org/PIC#Initialisation
@@ -28,23 +28,23 @@ void pci_init()
      *   3. Gives additional information about the environment. (ICW4)
      */
     // ICW2: set the master PIC's offset
-    port_byte_out(PIC_MASTER_DATA_PORT, PIC_MASTER_OFFSET);
+    out_byte(PIC_MASTER_DATA_PORT, PIC_MASTER_OFFSET);
     io_wait();
     // ICW2: set the slave PIC's offset
-    port_byte_out(PIC_SLAVE_DATA_PORT, PIC_SLAVE_OFFSET);
+    out_byte(PIC_SLAVE_DATA_PORT, PIC_SLAVE_OFFSET);
     io_wait();
     // ICW3: tell Master PIC that there is a slave PIC at IRQ2 (0000 0100)
-    port_byte_out(PIC_MASTER_DATA_PORT, 0x04);
+    out_byte(PIC_MASTER_DATA_PORT, 0x04);
     io_wait();
     // ICW3: tell Slave PIC its cascade identity (0000 0010)
-    port_byte_out(PIC_SLAVE_DATA_PORT, 0x02);
+    out_byte(PIC_SLAVE_DATA_PORT, 0x02);
     io_wait();
     // ICW4: Gives additional information about the environment
-    port_byte_out(PIC_MASTER_DATA_PORT, PIC_8086_MODE);
+    out_byte(PIC_MASTER_DATA_PORT, PIC_8086_MODE);
     io_wait();
-    port_byte_out(PIC_SLAVE_DATA_PORT, PIC_8086_MODE);
+    out_byte(PIC_SLAVE_DATA_PORT, PIC_8086_MODE);
     io_wait();
     // restore masks
-    port_byte_out(PIC_MASTER_DATA_PORT, b1);
-    port_byte_out(PIC_SLAVE_DATA_PORT, b2);
+    out_byte(PIC_MASTER_DATA_PORT, b1);
+    out_byte(PIC_SLAVE_DATA_PORT, b2);
 }

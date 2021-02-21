@@ -28,7 +28,7 @@ void init_timer(nat32 freq)
     // 0x40-0x42 are the data ports for channels 0-2 respectively,
     // and 0x43 is the command port.
     // set frequency
-    port_byte_out(0x43, 0x36); /* Command port */
-    port_byte_out(0x40, low);
-    port_byte_out(0x40, high);
+    out_byte(0x43, 0x36); /* Command port */
+    out_byte(0x40, low);
+    out_byte(0x40, high);
 }

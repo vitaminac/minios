@@ -32,9 +32,6 @@ or if there was some error
 that is stopping the work from being finished.
 */
 
-#include "cpu/port.h"
-#include "libc/memory.h"
-
 // display buffer
 #define VIDEO_ADDRESS 0xb8000
 #define MAX_ROWS 25

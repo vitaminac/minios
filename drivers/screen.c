@@ -1,4 +1,6 @@
 #include "screen.h"
+#include "libc/pio.h"
+#include "libc/memory.h"
 
 int get_cursor_offset()
 {
@@ -11,10 +13,10 @@ int get_cursor_offset()
      * Once the internal register has been selected,
      * we may read or write a byte on the data register
      */
-    port_byte_out(REG_SCREEN_CTRL, 14);
-    int offset = port_byte_in(REG_SCREEN_DATA) << 8; /* High byte: << 8 */
-    port_byte_out(REG_SCREEN_CTRL, 15);
-    offset += port_byte_in(REG_SCREEN_DATA);
+    out_byte(REG_SCREEN_CTRL, 14);
+    int offset = in_byte(REG_SCREEN_DATA) << 8; /* High byte: << 8 */
+    out_byte(REG_SCREEN_CTRL, 15);
+    offset += in_byte(REG_SCREEN_DATA);
     /**
      * Since the cursor offset reported by the VGA hardware is the number of characters, 
      * we multiply by two to convert it to a character cell offset.
@@ -28,10 +30,10 @@ void set_cursor_offset(int offset)
     offset /= 2;
     // This is similar to get_cursor,
     // only now we write bytes to those internal device registers
-    port_byte_out(REG_SCREEN_CTRL, 14);
-    port_byte_out(REG_SCREEN_DATA, (unsigned char)(offset >> 8));
-    port_byte_out(REG_SCREEN_CTRL, 15);
-    port_byte_out(REG_SCREEN_DATA, (unsigned char)(offset & 0xff));
+    out_byte(REG_SCREEN_CTRL, 14);
+    out_byte(REG_SCREEN_DATA, (unsigned char)(offset >> 8));
+    out_byte(REG_SCREEN_CTRL, 15);
+    out_byte(REG_SCREEN_DATA, (unsigned char)(offset & 0xff));
 }
 
 /* Advance the text cursor , scrolling the video buffer if necessary . */

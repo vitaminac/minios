@@ -18,31 +18,31 @@ Run **make debug** and then you can use any gdb command.
 
 #### continue
 
-**c**: continues running the program until the next breakpoint or error
+* **c**: continues running the program until the next breakpoint or error
 
 #### info break
 
-**info break**: list breakpoints
+* **info break**: list breakpoints
 
 #### step
 
-**s**: runs the next line of the program
+* **s**: runs the next line of the program
 
 #### next
 
-**n**: Like **s**, but it does not step into functions
+* **n**: Like **s**, but it does not step into functions
 
 #### print
 
-**p var**: print the current value of the variable **var**.
+* **p var**: print the current value of the variable **var**.
 
 #### list
 
-**list**: print more lines
+* **list**: print more lines
 
 #### quit
 
-**q**: quits gdb
+* **q**: quits gdb
 
 ### VNC
 
