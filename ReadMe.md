@@ -7,7 +7,46 @@
 
 ## Debug
 
-Run **make debug** and then you can use any gdb command for example "break main", "continue", "list", "quit", etc. You can access the remote desktop with VNC viewer connecting to "localhost:5900".
+Run **make debug** and then you can use any gdb command.
+
+### gdb commands
+
+#### break
+
+* **b main**: puts a breakpoint at the symbol main
+* **b f:N**: puts a breakpoint at the line N of file **f**
+
+#### continue
+
+**c**: continues running the program until the next breakpoint or error
+
+#### info break
+
+**info break**: list breakpoints
+
+#### step
+
+**s**: runs the next line of the program
+
+#### next
+
+**n**: Like **s**, but it does not step into functions
+
+#### print
+
+**p var**: print the current value of the variable **var**.
+
+#### list
+
+**list**: print more lines
+
+#### quit
+
+**q**: quits gdb
+
+### VNC
+
+You can access the remote desktop with VNC viewer connecting to "localhost:5900".
 
 ## Tutorial
 
@@ -63,6 +102,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [elfboot](https://github.com/croemheld/elfboot)
 * [Busybox](https://git.busybox.net/busybox/)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Biscuit research OS](https://github.com/mit-pdos/biscuit)
@@ -89,6 +129,7 @@ Run **make debug** and then you can use any gdb command for example "break main"
 * [Hurlex II](https://github.com/hurley25/Hurlex-II)
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
 * [Syslinux](https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git)
+* [x86 Bare Metal Examples](https://github.com/cirosantilli/x86-bare-metal-examples)
 
 ### [Linux](https://elixir.bootlin.com/linux/latest/source)
 
@@ -100,6 +141,12 @@ Run **make debug** and then you can use any gdb command for example "break main"
 * [copy.S](https://github.com/torvalds/linux/blob/master/arch/x86/boot/copy.S)
 * [sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h)
 * [mem.c](https://github.com/torvalds/linux/blob/master/drivers/char/mem.c)
+
+### Emulator
+
+* [QEMU](https://www.qemu.org/)
+* [Bochs](http://bochs.sourceforge.net/)
+* [Unicorn Engine](https://github.com/unicorn-engine/unicorn)
 
 ## Reference
 

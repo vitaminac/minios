@@ -1,8 +1,10 @@
 #include "drivers/screen.h"
 #include "drivers/keyboard.h"
 #include "libc/string.h"
+#include "libc/errno.h"
 #include "cpu/isr.h"
 #include "cpu/timer.h"
+#include "arch/i386/acpi.h"
 
 void main()
 {
@@ -23,14 +25,20 @@ void main()
      * the keyboard IRQs easier */
     init_keyboard();
 
+    if (acpi_init() != SUCCESS)
+    {
+        print("Failed to initialized ACPI\n");
+    }
+
     while (true)
     {
         print(">");
         scanf(input);
-        if (strcmp(input, "END") == 0)
+        if (strcmp(input, "POWEROFF") == 0)
         {
-            print("Stopping the CPU. Bye!\n");
-            __asm__ __volatile__("hlt"); // TODO: close power
+            print("Turning off the power. \n");
+            acpi_power_off();
+            print("Failed on turning off the power. \n");
             return;
         }
         else if (strcmp(input, "MALLOC") == 0)

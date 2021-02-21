@@ -95,8 +95,9 @@ init_pm:
     ; Finally, jump to the address of our loaded kernel code
     call KERNEL_OFFSET
 
-Hang:
-    ; Jumps to a new memory address to continue execution.
-    ; In our case, jump to the address of the current instruction.
-    ; Hang forever when we return from the kernel
-    jmp $
+poweroff:
+    ; Try to turn off the computer when we return from the kernel
+    cli ; mask all maskable interrupts on CPU core
+suspend:
+    hlt ; turn CPU into HALT state (power saving mode C1)
+    jmp suspend ; try again if no maskable interrupt had happened

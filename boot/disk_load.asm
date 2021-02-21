@@ -59,6 +59,8 @@ disk_load:
 disk_error:
     mov bx, DISK_ERROR_MSG
     call print_string
+    ; Jumps to a new memory address to continue execution.
+    ; In our case, jump to the address of the current instruction.
     jmp $
 
 ; Disk Message
