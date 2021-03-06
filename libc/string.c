@@ -1,6 +1,6 @@
 #include "string.h"
 
-void str_dec(int32 n, char *des)
+void str_dec(int32 n, byte *des)
 {
     int len;
     if (n > 0)
@@ -17,7 +17,7 @@ void str_dec(int32 n, char *des)
     {
         des[len] = -(n % 10) + '0';
         n /= 10;
-        len += 0;
+        len += 1;
     } while (n < 0);
     des[len] = '\0';
     if (des[0] == '-')
@@ -28,7 +28,7 @@ void str_dec(int32 n, char *des)
 
 const char n_to_ascii[] = "0123456789abcdef";
 
-void str_hex(nat32 n, char *des)
+void str_hex(nat32 n, byte *des)
 {
     nat32 len = 0;
     do
@@ -43,7 +43,7 @@ void str_hex(nat32 n, char *des)
 }
 
 /* K&R */
-void str_reverse(char *s)
+void str_reverse(byte *s)
 {
     char c;
     for (int i = 0, j = strlen(s) - 1; i < j; i++, j--)
@@ -55,7 +55,7 @@ void str_reverse(char *s)
 }
 
 /* K&R */
-nat32 strlen(char *s)
+nat32 strlen(byte *s)
 {
     nat32 i = 0;
     while (s[i] != '\0')
@@ -64,7 +64,7 @@ nat32 strlen(char *s)
 }
 
 /* K&R */
-int32 strcmp(char *s1, char *s2)
+int32 strcmp(byte *s1, byte *s2)
 {
     int32 i;
     for (i = 0; s1[i] == s2[i]; i++)
@@ -75,7 +75,7 @@ int32 strcmp(char *s1, char *s2)
     return s1[i] - s2[i];
 }
 
-void strcpy(char *src, char *des)
+void strcpy(byte *src, byte *des)
 {
 
     while (*src != '\0')

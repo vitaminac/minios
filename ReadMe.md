@@ -36,6 +36,10 @@ Run **make debug** and then you can use any gdb command.
 
 * **p var**: print the current value of the variable **var**.
 
+#### finish
+
+* **finish**: Runs until the current function is finished
+
 #### list
 
 * **list**: print more lines
@@ -52,6 +56,7 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 
 - [x] [Writing a Simple Operating System from Scratch](http://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf)
 - [x] [os-tutorial](https://github.com/cfenollosa/os-tutorial)
+- [ ] [Kmalloc Internals: Exploring Linux Kernel Memory Allocation](http://www.jikos.cz/jikos/Kmalloc_Internals.html)
 - [ ] [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 - [ ] [The little book about OS development](https://littleosbook.github.io/)
 - [ ] [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
@@ -80,6 +85,8 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 - [ ] [Carnegie Mellon 15-410: Operating System Design and Implementation](https://www.cs.cmu.edu/~410/)
 - [ ] [CS401: Operating Systems](https://learn.saylor.org/course/CS401)
 - [ ] [ILLINOIS URBANA-CHAMPAIGN ECE 391: Computer Systems Engineering](https://courses.grainger.illinois.edu/ece391)
+- [ ] [UPM: Sistemas Operativos Avanzados](http://laurel.datsi.fi.upm.es/docencia/asignaturas/soa)
+- [ ] [UPM: Sistemas empotrados y ubicuos](http://www.datsi.fi.upm.es/docencia/SEUM/)
 
 ## Book
 
@@ -130,6 +137,11 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
 * [Syslinux](https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git)
 * [x86 Bare Metal Examples](https://github.com/cirosantilli/x86-bare-metal-examples)
+* [OpenWrt](https://github.com/openwrt/openwrt)
+* [DD-WRT](https://svn.dd-wrt.com//)
+* [pfSense](https://github.com/pfsense/pfsense)
+* [eCos](http://mirrors.kernel.org/sources.redhat.com/ecos/)
+* [U-Boot](https://github.com/u-boot/u-boot)
 
 ### [Linux](https://elixir.bootlin.com/linux/latest/source)
 
@@ -147,6 +159,8 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 * [QEMU](https://www.qemu.org/)
 * [Bochs](http://bochs.sourceforge.net/)
 * [Unicorn Engine](https://github.com/unicorn-engine/unicorn)
+* [VirtualBox](https://www.virtualbox.org/)
+* [VMware Workstation Player](https://www.vmware.com/products/workstation-player.html)
 
 ## Reference
 
@@ -156,3 +170,4 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 * [The Linux Documentation Project](https://www.tldp.org)
 * [The GNU C Library](https://www.gnu.org/software/libc/manual/html_node)
 * [Intel® 64 and IA-32 Architectures Software Developer’s Manuals](https://software.intel.com/en-us/articles/intel-sdm)
+* [Operating System Design](https://en.wikibooks.org/wiki/Operating_System_Design)

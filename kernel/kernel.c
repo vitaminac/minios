@@ -4,11 +4,13 @@
 #include "libc/errno.h"
 #include "cpu/isr.h"
 #include "cpu/timer.h"
+#include "drivers/cmos.h"
 #include "arch/i386/acpi.h"
 
 void main()
 {
-    char input[255];
+    byte input[255];
+    byte buffer[255];
     clear();
     // ou caller function is calling callee function
     // and ensure pass argument to callee function
@@ -40,6 +42,30 @@ void main()
             acpi_power_off();
             print("Failed on turning off the power. \n");
             return;
+        }
+        else if (strcmp(input, "NOW") == 0)
+        {
+            str_dec(getRTCYear(), buffer);
+            print(buffer);
+            print(" ");
+            str_dec(getRTCMonth(), buffer);
+            print(buffer);
+            print(" ");
+            str_dec(getRTCDayOfMonth(), buffer);
+            print(buffer);
+            print(" W");
+            str_dec(getRTCWeekday(), buffer);
+            print(buffer);
+            print(" ");
+            str_dec(getRTCHours(), buffer);
+            print(buffer);
+            print(":");
+            str_dec(getRTCMinutes(), buffer);
+            print(buffer);
+            print(":");
+            str_dec(getRTCSeconds(), buffer);
+            print(buffer);
+            print("\n");
         }
         else if (strcmp(input, "MALLOC") == 0)
         {
