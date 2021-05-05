@@ -24,6 +24,10 @@ Run **make debug** and then you can use any gdb command.
 
 * **info break**: list breakpoints
 
+#### del
+
+* **del N**: remove break point **N**
+
 #### step
 
 * **s**: runs the next line of the program

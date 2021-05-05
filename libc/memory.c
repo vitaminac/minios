@@ -1,7 +1,7 @@
 #include "memory.h"
 
 /* Copy bytes from one place to another */
-void memory_copy(char *source, char *dest, nat32 no_bytes)
+void memory_copy(byte *source, byte *dest, nat32 no_bytes)
 {
     for (nat32 i = 0; i < no_bytes; i++)
     {
@@ -9,7 +9,7 @@ void memory_copy(char *source, char *dest, nat32 no_bytes)
     }
 }
 
-void memory_fill(char *source, int no_bytes, char *value, nat32 value_size)
+void memory_fill(byte *source, int no_bytes, byte *value, nat32 value_size)
 {
     for (int i = 0; i < no_bytes; i++, source++)
     {

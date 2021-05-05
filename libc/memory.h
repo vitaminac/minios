@@ -3,8 +3,8 @@
 
 #include "libc/types.h"
 
-void memory_copy(char *source, char *dest, nat32 no_bytes);
-void memory_fill(char *source, int no_bytes, char *value, nat32 value_size);
+void memory_copy(byte *source, byte *dest, nat32 no_bytes);
+void memory_fill(byte *source, int no_bytes, byte *value, nat32 value_size);
 int32 memcmp(const byte *ptr1, const byte *ptr2, nat32 size);
 ptr const malloc(nat32 nBytes);
 #define low_16(address) (nat16)((address)&0xFFFF)
