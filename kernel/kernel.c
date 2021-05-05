@@ -5,7 +5,7 @@
 #include "cpu/isr.h"
 #include "cpu/timer.h"
 #include "drivers/cmos.h"
-#include "arch/i386/acpi.h"
+#include "hal/i386/acpi.h"
 
 void main()
 {

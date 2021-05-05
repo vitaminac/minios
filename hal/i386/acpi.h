@@ -1,6 +1,6 @@
 #ifndef _LINUX_ACPI_H
 #define _LINUX_ACPI_H
-#include "libc/types.h"
+#include "def/types.h"
 #include "libc/errno.h"
 
 // Root System Description Table Pointer - RSDP

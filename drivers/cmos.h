@@ -1,7 +1,7 @@
 // https://wiki.osdev.org/CMOS
 #ifndef CMOS_H
 #define CMOS_H
-#include "libc/types.h"
+#include "def/types.h"
 
 nat32 getRTCSeconds();
 nat32 getRTCMinutes();

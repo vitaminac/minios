@@ -1,5 +1,5 @@
 # Automatically generate lists of sources using wildcards
-C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c arch/i386/*.c)
+C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
 INC_DIR = .
 # The option -ffreestanding directs the compiler 
 # to not assume that standard functions 

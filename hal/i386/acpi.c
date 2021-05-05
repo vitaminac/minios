@@ -19,7 +19,7 @@ static struct acpi_fadt *search_FADT_from_RSDT(struct acpi_rsdt *rsdt);
 static struct acpi_dsdt *fetch_and_validate_DSDT_from_FADT(struct acpi_fadt *fadt);
 static struct byte *search_S5_from_DSDT(struct acpi_dsdt *dsdt);
 static bool is_valid_S5_address(byte *S5_address);
-static void extract_SLP_TYPa_and_SLP_TYPb(byte *S5_address, b16_ptr SLP_TYPa_ptr, b16_ptr SLP_TYPb_ptr);
+static void extract_SLP_TYPa_and_SLP_TYPb(byte *S5_address, b16 *SLP_TYPa_ptr, b16 *SLP_TYPb_ptr);
 
 STATUS acpi_init(void)
 {
@@ -150,7 +150,7 @@ static bool is_valid_S5_address(byte *S5_address)
 }
 
 #define ACPI_SLP_TYP_SHIFT 10
-static void extract_SLP_TYPa_and_SLP_TYPb(byte *S5_address, b16_ptr SLP_TYPa_ptr, b16_ptr SLP_TYPb_ptr)
+static void extract_SLP_TYPa_and_SLP_TYPb(byte *S5_address, b16 *SLP_TYPa_ptr, b16 *SLP_TYPb_ptr)
 {
     S5_address += 5;
     S5_address += ((*S5_address & 0xC0) >> 6) + 2; // calculate PkgLength size

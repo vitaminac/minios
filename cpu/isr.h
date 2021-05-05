@@ -1,7 +1,7 @@
 #ifndef ISR_H
 #define ISR_H
 
-#include "libc/types.h"
+#include "def/types.h"
 #include "drivers/pic.h"
 
 /* ISRs reserved for CPU exceptions */

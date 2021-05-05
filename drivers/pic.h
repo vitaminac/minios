@@ -1,7 +1,7 @@
 #ifndef PIC_H
 #define PIC_H
 
-#include "libc/types.h"
+#include "def/types.h"
 
 /* PCI common definitions https://wiki.osdev.org/PIC#Programming_with_the_8259_PIC */
 // IO base address for master PIC

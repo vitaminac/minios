@@ -1,7 +1,7 @@
 #ifndef STRING_H
 #define STRING_H
 
-#include "libc/types.h"
+#include "def/types.h"
 
 void str_dec(int32 n, byte *des);
 void str_hex(nat32 n, byte *des);

@@ -17,10 +17,10 @@ void memory_fill(byte *source, int no_bytes, byte *value, nat32 value_size)
     }
 }
 
-ptr const malloc(nat32 nBytes)
+void *const malloc(nat32 nBytes)
 {
     static word free_mem_addr = 0x10000;
-    ptr const ret = (ptr)free_mem_addr;
+    void *const ret = (void *)free_mem_addr;
     free_mem_addr += nBytes;
     if (free_mem_addr & WORD_MASK)
     {
