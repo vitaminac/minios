@@ -1,7 +1,7 @@
 #ifndef _LINUX_ACPI_H
 #define _LINUX_ACPI_H
 #include "def/types.h"
-#include "libc/errno.h"
+#include "def/status.h"
 
 // Root System Description Table Pointer - RSDP
 #define ACPI_BIOS_ROM_BASE (0x0E0000)

@@ -1,7 +1,7 @@
 #include "drivers/screen.h"
 #include "drivers/keyboard.h"
 #include "libc/string.h"
-#include "libc/errno.h"
+#include "def/status.h"
 #include "cpu/isr.h"
 #include "cpu/timer.h"
 #include "drivers/cmos.h"
