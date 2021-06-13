@@ -90,7 +90,7 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 - [ ] [CS401: Operating Systems](https://learn.saylor.org/course/CS401)
 - [ ] [ILLINOIS URBANA-CHAMPAIGN ECE 391: Computer Systems Engineering](https://courses.grainger.illinois.edu/ece391)
 - [ ] [UPM: Sistemas Operativos Avanzados](http://laurel.datsi.fi.upm.es/docencia/asignaturas/soa)
-- [ ] [UPM: Sistemas empotrados y ubicuos](http://www.datsi.fi.upm.es/docencia/SEUM/)
+- [ ] [UPM: Sistemas Empotrados y Ubicuos](http://www.datsi.fi.upm.es/docencia/SEUM/)
 
 ## Book
 
@@ -109,6 +109,7 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 - [ ] Distributed Systems: Principles and Practice
 - [ ] The C Programming Language
 - [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
+- [ ] 一个64位操作系统的设计与实现
 
 ## Source Code
 
@@ -127,6 +128,7 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 * [FreeBSD](https://github.com/freebsd/freebsd)
 * [OpenBSD](https://www.openbsd.org/)
 * [Minix 3](http://gerrit.minix3.org)
+* [OpenHarmony](https://gitee.com/openharmony)
 * [TencentOS-tiny](https://github.com/Tencent/TencentOS-tiny)
 * [RT-Thread](https://github.com/RT-Thread/rt-thread)
 * [Grub2](https://www.gnu.org/software/grub/grub-download.html)
