@@ -106,7 +106,7 @@ You can access the remote desktop with VNC viewer connecting to "localhost:5900"
 - [ ] Windows Internals
 - [ ] Operating Systems: Design and Implementation
 - [ ] Modern Operating Systems
-- [ ] Distributed Systems: Principles and Practice
+- [ ] Distributed Systems: Principles and Paradigms
 - [ ] The C Programming Language
 - [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 - [ ] 一个64位操作系统的设计与实现
