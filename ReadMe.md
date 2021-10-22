@@ -1,6 +1,6 @@
 # Mini Operating System From Zero
 
-## WSL Dev Environment Setup
+## Debian Dev Environment Setup
 
     sudo apt update
     sudo apt install build-essential nasm gcc g++ gdb qemu qemu-system-x86
@@ -54,7 +54,7 @@ Run **make debug** and then you can use any gdb command.
 
 ### VNC
 
-You can access the remote desktop with VNC viewer connecting to "localhost:5900".
+You can access the remote desktop with VNC viewer connecting to "<your-linux-virtual-machine-ip-address>:5900".
 
 ## Tutorial
 

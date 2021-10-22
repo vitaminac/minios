@@ -1,13 +1,17 @@
-# Automatically generate lists of sources using wildcards
-C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
 INC_DIR = .
-# The option -ffreestanding directs the compiler 
-# to not assume that standard functions 
-# have their usual definition
-CFLAGS= -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -g
+# The option -ffreestanding directs the compiler to not assume that standard functions have their usual definition
+C_FLAGS = -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -g
+NASM_FLAGS = -f elf -I $(INC_DIR)
 
+# Automatically generate lists of sources using wildcards
+KERNEL_C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
 # Convert the *.c filenames to *.o to give a list of object files to build
-OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
+KERNEL_OBJECTS = kernel/kernel_entry.o ${KERNEL_C_SOURCES:.c=.o} cpu/interrupt.o
+
+BOOT_SECTOR_MEMOERY_ADDRESS = 0x7c00
+
+# Default build target .
+all: os.img
 
 # Generic rule for compiling C code to an object file
 # The compiler outputs annotated machine code,
@@ -22,14 +26,14 @@ OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 # rather than absolute internel memory references.
 # $< is the first dependancy and $@ is the target file
 %.o: %.c
-	gcc ${CFLAGS} -c $< -o $@
+	gcc ${C_FLAGS} -c $< -o $@
 
 # The option -f elf tells the assembler 
 # to output an object file of the particular format Executable 
 # and Linking Format (ELF), 
 # which is the default format output by out C compiler
 %.o: %.asm
-	nasm $< -f elf -o $@
+	nasm $< ${NASM_FLAGS} -o $@
 
 # In order to create the actual executable code
 # we have to use a linker, 
@@ -59,26 +63,23 @@ OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 # Build the kernel binary
 # The final ELF will have following format .text - .rodata - .data
 # $^ is substituted with all of the target's dependancy files
-kernel.bin: kernel/kernel_entry.o ${OBJ}
+kernel.bin: ${KERNEL_OBJECTS}
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
 
 # Used for debugging purposes
-kernel.elf: kernel/kernel_entry.o ${OBJ}
+kernel.elf: ${KERNEL_OBJECTS}
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^
 
 # Assemble the boot sector to raw machine code
 # The -I options tells nasm where to find our useful assembly
-# routines that we include in boot_sect . asm
-boot_sect.bin: ./boot/boot_sect.asm
-	nasm $< -f bin -i ./boot/ -o $@
+# routines that we include in boot_sect.asm
+boot_sect.bin: boot/boot_sect.asm
+	nasm $< -f bin -I ./boot/ -o $@
 
 # This is the actual disk image that the computer loads ,
 # which is the combination of our compiled bootsector and kernel
 os.img: boot_sect.bin kernel.bin
 	cat $^ > $@
-
-# Default build target .
-all: os.img
 
 # Disassemble our kernel - might be useful for debugging
 kernel.dis: kernel.bin
@@ -86,8 +87,7 @@ kernel.dis: kernel.bin
 
 # Clear away all generated files .
 clean:
-	rm ${OBJ}
-	rm -fr *.bin *.dis *.o os.img *.map *.elf *.dis
+	rm -fr *.bin *.dis os.img *.map *.elf *.dis ${KERNEL_OBJECTS}
 
 # Run bochs to simulate booting of our code
 debug: all kernel.elf

@@ -5,12 +5,9 @@
 ; a collection of software routines that are initially loaded from a chip into memory 
 ; and initialised when the computer is switched on.
 
-; BIOS likes always to load 
-; the boot sector to the address 0x7c00
-; org directive tell the assembler 
-; where you expect the code will be loaded in memory
-; assembler will precalculate label address 
-; by offset + this value when it is compiled
+; BIOS load the boot sector to the address 0x7c00
+; org directive tell the assembler where you expect the code will be loaded
+; assembler will precalculate label address with this offset
 [org 0x7c00]
 
 ; Typical lower memory layout afer boot
