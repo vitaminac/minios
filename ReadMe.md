@@ -54,7 +54,7 @@ Run **make debug** and then you can use any gdb command.
 
 ### VNC
 
-You can access the remote desktop with VNC viewer connecting to "<your-linux-virtual-machine-ip-address>:5900".
+You can access the remote desktop with VNC viewer connecting to "\<your-linux-virtual-machine-ip-address\>:5900".
 
 ## Tutorial
 
