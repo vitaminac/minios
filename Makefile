@@ -3,10 +3,14 @@ INC_DIR = .
 C_FLAGS = -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -g
 NASM_FLAGS = -f elf -I $(INC_DIR)
 
+# Tools path
+
+OBJCOPY = objcopy
+
 # Automatically generate lists of sources using wildcards
 KERNEL_C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
 # Convert the *.c filenames to *.o to give a list of object files to build
-KERNEL_OBJECTS = kernel/kernel_entry.o ${KERNEL_C_SOURCES:.c=.o} cpu/interrupt.o
+KERNEL_OBJECTS = kernel/kernel_entry.o $(KERNEL_C_SOURCES:.c=.o) cpu/interrupt.o
 
 BOOT_SECTOR_MEMOERY_ADDRESS = 0x7c00
 
@@ -26,14 +30,14 @@ all: os.img
 # rather than absolute internel memory references.
 # $< is the first dependancy and $@ is the target file
 %.o: %.c
-	gcc ${C_FLAGS} -c $< -o $@
+	gcc $(C_FLAGS) -c $< -o $@
 
 # The option -f elf tells the assembler 
 # to output an object file of the particular format Executable 
 # and Linking Format (ELF), 
 # which is the default format output by out C compiler
 %.o: %.asm
-	nasm $< ${NASM_FLAGS} -o $@
+	nasm $< $(NASM_FLAGS) -o $@
 
 # In order to create the actual executable code
 # we have to use a linker, 
@@ -57,18 +61,19 @@ all: os.img
 # CPU is unware of metadata and will execute every byte as machine code
 # This is why we specify an output format of (raw) binary
 
-# This builds the binary of our kernel from two object files:
+# This builds our kernel from:
 # the kernel_entry, which jumps to main() in our kernel
-# the compiled C kernel
-# Build the kernel binary
-# The final ELF will have following format .text - .rodata - .data
+# and the compiled C kernel objects
 # $^ is substituted with all of the target's dependancy files
-kernel.bin: ${KERNEL_OBJECTS}
-	ld -m elf_i386 -o $@ -Ttext 0x1000 $^ --oformat binary
-
-# Used for debugging purposes
-kernel.elf: ${KERNEL_OBJECTS}
+# However normally linker generates elf format which contains no executable metadata:
+# e.g. relacation table for dynamic linking, symbols and annotations for debugging purpose
+kernel.elf: $(KERNEL_OBJECTS)
 	ld -m elf_i386 -o $@ -Ttext 0x1000 $^
+
+# To extract flat binary format from elf format we use objcopy
+# The final binary file will only have following sections .text - .rodata - .data
+kernel.bin: kernel.elf
+	$(OBJCOPY) -O binary kernel.elf $@
 
 # Assemble the boot sector to raw machine code
 # The -I options tells nasm where to find our useful assembly
@@ -87,7 +92,7 @@ kernel.dis: kernel.bin
 
 # Clear away all generated files .
 clean:
-	rm -fr *.bin *.dis os.img *.map *.elf *.dis ${KERNEL_OBJECTS}
+	rm -fr *.bin *.dis os.img *.map *.elf *.dis $(KERNEL_OBJECTS)
 
 # Run bochs to simulate booting of our code
 debug: all kernel.elf
