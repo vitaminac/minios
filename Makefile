@@ -4,8 +4,8 @@ C_FLAGS = -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I
 NASM_FLAGS = -f elf -I $(INC_DIR)
 
 # Tools path
-
 OBJCOPY = objcopy
+GCC = gcc
 
 # Automatically generate lists of sources using wildcards
 KERNEL_C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
@@ -30,7 +30,7 @@ all: os.img
 # rather than absolute internel memory references.
 # $< is the first dependancy and $@ is the target file
 %.o: %.c
-	gcc $(C_FLAGS) -c $< -o $@
+	$(GCC) $(C_FLAGS) -c $< -o $@
 
 # The option -f elf tells the assembler 
 # to output an object file of the particular format Executable 
