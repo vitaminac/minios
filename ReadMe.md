@@ -3,7 +3,7 @@
 ## Debian Dev Environment Setup
 
     sudo apt update
-    sudo apt install build-essential nasm gcc g++ gdb qemu qemu-system-x86
+    sudo apt install build-essential nasm gcc gdb qemu qemu-system-x86
 
 ## Debug
 
