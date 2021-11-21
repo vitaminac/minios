@@ -3,4 +3,5 @@
 *.pdf
 *.img
 *.elf
+*.dis
 bx_enh_dbg.ini

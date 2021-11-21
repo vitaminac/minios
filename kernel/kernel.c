@@ -7,7 +7,7 @@
 #include "drivers/cmos.h"
 #include "hal/i386/acpi.h"
 
-void main()
+void kmain()
 {
     byte input[255];
     byte buffer[255];

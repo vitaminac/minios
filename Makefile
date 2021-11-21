@@ -10,7 +10,7 @@ GCC = gcc
 # Automatically generate lists of sources using wildcards
 KERNEL_C_SOURCES = $(wildcard kernel/*.c cpu/*.c drivers/*.c libc/*.c hal/i386/*.c)
 # Convert the *.c filenames to *.o to give a list of object files to build
-KERNEL_OBJECTS = kernel/kernel_entry.o $(KERNEL_C_SOURCES:.c=.o) cpu/interrupt.o
+KERNEL_OBJECTS = $(KERNEL_C_SOURCES:.c=.o) cpu/interrupt.o
 
 BOOT_SECTOR_MEMOERY_ADDRESS = 0x7c00
 
@@ -61,14 +61,12 @@ all: os.img
 # CPU is unware of metadata and will execute every byte as machine code
 # This is why we specify an output format of (raw) binary
 
-# This builds our kernel from:
-# the kernel_entry, which jumps to main() in our kernel
-# and the compiled C kernel objects
+# This builds our kernel from compiled C kernel objects
 # $^ is substituted with all of the target's dependancy files
 # However normally linker generates elf format which contains no executable metadata:
 # e.g. relacation table for dynamic linking, symbols and annotations for debugging purpose
 kernel.elf: $(KERNEL_OBJECTS)
-	ld -m elf_i386 -o $@ -Ttext 0x1000 $^
+	ld -m elf_i386 -o $@ -Ttext 0x1000 --entry kmain $^
 
 # To extract flat binary format from elf format we use objcopy
 # The final binary file will only have following sections .text - .rodata - .data
