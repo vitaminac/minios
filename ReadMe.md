@@ -64,7 +64,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] [JamesM's kernel development tutorials](http://www.jamesmolloy.co.uk/tutorial_html/index.html)
 - [ ] [The little book about OS development](https://littleosbook.github.io/)
 - [ ] [Operating Systems: From 0 to 1](https://tuhdo.github.io/os01/)
-- [ ] [30 day Make OS](https://github.com/yourtion/30dayMakeOS)
 - [ ] [Writing an OS in Rust](https://os.phil-opp.com/)
 - [ ] [Write an OS running on a CPU that complies with RISC V in Rust (CPU experiment sideshow)](https://gist.github.com/cb372/5f6bf16ca0682541260ae52fc11ea3bb)
 - [ ] [Shichao's Notes](https://notes.shichao.io)
@@ -110,6 +109,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] The C Programming Language
 - [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 - [ ] 一个64位操作系统的设计与实现
+- [ ] 30天自制操作系统
 
 ## Source Code
 
