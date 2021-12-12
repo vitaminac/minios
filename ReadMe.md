@@ -171,6 +171,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 ## Reference
 
 * [OS Dev](https://wiki.osdev.org)
+* [Linux Foundation: Referenced Specifications](https://refspecs.linuxfoundation.org/)
 * [Linux Kernel Teaching](https://linux-kernel-labs.github.io/refs/heads/master/index.html)
 * [The Linux Kernel documentation](https://www.kernel.org/doc/html/latest/)
 * [The Linux Documentation Project](https://www.tldp.org)
