@@ -1,6 +1,6 @@
 INC_DIR = .
 # The option -ffreestanding directs the compiler to not assume that standard functions have their usual definition
-C_FLAGS = -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -g
+C_FLAGS = -fno-pic -fno-pie -fno-exceptions -ffreestanding -m32 -Wall -Wextra -I $(INC_DIR) -std=c17 -pedantic-errors -g
 NASM_FLAGS = -f elf -I $(INC_DIR)
 
 # Tools path

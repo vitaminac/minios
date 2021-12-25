@@ -2,11 +2,12 @@
 #include "isr.h"
 #include "libc/string.h"
 #include "libc/memory.h"
+#include "libc/pio.h"
 
 // static functions are functions that are only visible to other functions in the same translation unit
 static void timer_callback(registers_t regs)
 {
-    static tick = 0;
+    static nat32 tick = 0;
     tick++;
 }
 

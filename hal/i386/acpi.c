@@ -17,7 +17,7 @@ static struct acpi_rsdp *search_RSDP_from_BIOS_memory(void);
 static struct acpi_rsdt *fetch_and_validate_RSDT_from_RSDP(struct acpi_rsdp *rsdp);
 static struct acpi_fadt *search_FADT_from_RSDT(struct acpi_rsdt *rsdt);
 static struct acpi_dsdt *fetch_and_validate_DSDT_from_FADT(struct acpi_fadt *fadt);
-static struct byte *search_S5_from_DSDT(struct acpi_dsdt *dsdt);
+static byte *search_S5_from_DSDT(struct acpi_dsdt *dsdt);
 static bool is_valid_S5_address(byte *S5_address);
 static void extract_SLP_TYPa_and_SLP_TYPb(byte *S5_address, b16 *SLP_TYPa_ptr, b16 *SLP_TYPb_ptr);
 
@@ -129,13 +129,13 @@ static struct acpi_dsdt *fetch_and_validate_DSDT_from_FADT(struct acpi_fadt *fad
     return NULL;
 }
 
-static struct byte *search_S5_from_DSDT(struct acpi_dsdt *dsdt)
+static byte *search_S5_from_DSDT(struct acpi_dsdt *dsdt)
 {
     byte *S5_address = dsdt->aml_code;
     nat32 aml_code_length = dsdt->header.length - sizeof(dsdt->header);
     while (aml_code_length-- > 0)
     {
-        if (memcmp(S5_address, "_S5_", 4) == 0)
+        if (memcmp(S5_address, (byte *)("_S5_"), 4) == 0)
         {
             return S5_address;
         }

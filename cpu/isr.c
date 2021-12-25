@@ -3,6 +3,7 @@
 #include "idt.h"
 #include "drivers/screen.h"
 #include "libc/string.h"
+#include "libc/pio.h"
 
 isr_handler_t interrupt_handlers[256];
 
@@ -108,7 +109,7 @@ void isr_handler(registers_t r)
 {
     print("received interrupt: ");
     char s[3];
-    str_dec(r.int_no, s);
+    dec2str(r.int_no, s);
     print(s);
     print("\n");
     print(exception_messages[r.int_no]);

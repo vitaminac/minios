@@ -99,7 +99,7 @@ int handle_scrolling(int cursor_offset)
                     MAX_COLS * 2);
     }
     /* Blank the last line by setting all bytes to 0 */
-    byte *last_line = VIDEO_ADDRESS + GET_SCREEN_OFFSET(0, MAX_ROWS - 1);
+    byte *last_line = (byte *)(VIDEO_ADDRESS + GET_SCREEN_OFFSET(0, MAX_ROWS - 1));
     for (nat32 i = 0; i < MAX_COLS * 2; i++)
     {
         last_line[i] = 0;

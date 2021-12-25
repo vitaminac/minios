@@ -1,4 +1,5 @@
 #include "pic.h"
+#include "libc/pio.h"
 
 /**
      * https://wiki.osdev.org/PIC#Protected_Mode
