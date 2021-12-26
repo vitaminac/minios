@@ -9,7 +9,7 @@
 
 Run **make debug** and then you can use any gdb command.
 
-### gdb commands
+### [Debugging with GDB](https://sourceware.org/gdb/current/onlinedocs/gdb/index.html)
 
 #### break
 
