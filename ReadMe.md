@@ -20,9 +20,15 @@ Run **make debug** and then you can use any gdb command.
 
 * **c**: continues running the program until the next breakpoint or error
 
-#### info break
+#### info
 
 * **info break**: list breakpoints
+* **info registers eax**: show the value of specific register
+
+#### where
+
+* **where**: Show call stack
+* **where full**: Show call stack, also print the local variables in each frame
 
 #### del
 
@@ -35,6 +41,18 @@ Run **make debug** and then you can use any gdb command.
 #### next
 
 * **n**: Like **s**, but it does not step into functions
+
+#### layout asm
+
+* **layout asm**: show the assembly and command windows.
+
+#### stepi
+
+* **si**: next instruction
+
+#### nexti
+
+* **ni**: Like **si**, but it does not step into routines
 
 #### print
 
