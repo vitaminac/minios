@@ -132,6 +132,8 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [Chromium OS](https://www.chromium.org/chromium-os/)
+* [webOS](https://github.com/webosose)
 * [elfboot](https://github.com/croemheld/elfboot)
 * [Busybox](https://git.busybox.net/busybox/)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
