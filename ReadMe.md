@@ -163,9 +163,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
 * [Syslinux](https://git.kernel.org/pub/scm/boot/syslinux/syslinux.git)
 * [x86 Bare Metal Examples](https://github.com/cirosantilli/x86-bare-metal-examples)
-* [OpenWrt](https://github.com/openwrt/openwrt)
-* [DD-WRT](https://svn.dd-wrt.com//)
-* [pfSense](https://github.com/pfsense/pfsense)
 * [eCos](http://mirrors.kernel.org/sources.redhat.com/ecos/)
 * [U-Boot](https://github.com/u-boot/u-boot)
 
