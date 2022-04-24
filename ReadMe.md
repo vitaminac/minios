@@ -137,6 +137,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [elfboot](https://github.com/croemheld/elfboot)
 * [Busybox](https://git.busybox.net/busybox/)
 * [Rufus](https://github.com/pbatard/rufus)
+* [Ventoy](https://github.com/ventoy/Ventoy)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Biscuit research OS](https://github.com/mit-pdos/biscuit)
 * [WSL2](https://github.com/microsoft/WSL2-Linux-Kernel)
