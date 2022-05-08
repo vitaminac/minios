@@ -167,6 +167,8 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [x86 Bare Metal Examples](https://github.com/cirosantilli/x86-bare-metal-examples)
 * [eCos](http://mirrors.kernel.org/sources.redhat.com/ecos/)
 * [U-Boot](https://github.com/u-boot/u-boot)
+* [YunOS](https://github.com/alibaba/cordova-yunos)
+* [AliOS](https://github.com/alibaba/AliOS-Things)
 
 ### [Linux](https://elixir.bootlin.com/linux/latest/source)
 
