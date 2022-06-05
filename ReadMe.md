@@ -135,7 +135,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [Chromium OS](https://www.chromium.org/chromium-os/)
 * [webOS](https://github.com/webosose)
 * [elfboot](https://github.com/croemheld/elfboot)
-* [Busybox](https://git.busybox.net/busybox/)
 * [Rufus](https://github.com/pbatard/rufus)
 * [Ventoy](https://github.com/ventoy/Ventoy)
 * [MS DOS](https://github.com/microsoft/MS-DOS)
@@ -180,6 +179,14 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [copy.S](https://github.com/torvalds/linux/blob/master/arch/x86/boot/copy.S)
 * [sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h)
 * [mem.c](https://github.com/torvalds/linux/blob/master/drivers/char/mem.c)
+
+### Shell
+
+* [Busybox](https://git.busybox.net/busybox/)
+* [Bash](https://www.gnu.org/software/bash/)
+* [zsh](https://github.com/zsh-users/zsh)
+* [PowerShell](https://github.com/PowerShell/PowerShell)
+* [Microsoft Terminal](https://github.com/microsoft/terminal)
 
 ### Emulator
 
