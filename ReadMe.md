@@ -120,7 +120,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] Understanding The Linux Kernel
 - [ ] Linux Kernel Development
 - [ ] The Essentials of Computer Organization and Architecture
-- [ ] Windows Internals
 - [ ] Operating Systems: Design and Implementation
 - [ ] Modern Operating Systems
 - [ ] Distributed Systems: Principles and Paradigms
@@ -128,6 +127,15 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 - [ ] 一个64位操作系统的设计与实现
 - [ ] 30天自制操作系统
+
+## Windows
+
+- [ ] [Windows Internals](https://docs.microsoft.com/en-us/sysinternals/resources/windows-internals)
+- [ ] [Developing Drivers with Windows Driver Foundation](https://docs.microsoft.com/en-us/windows-hardware/drivers/wdf/developing-drivers-with-wdf)
+- [ ] Programming the Microsoft® Windows® Driver Model
+- [ ] Windows via C/C++
+- [ ] Windows内核原理与实现
+- [ ] Windows内核情景分析
 
 ## Source Code
 
