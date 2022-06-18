@@ -128,7 +128,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] 一个64位操作系统的设计与实现
 - [ ] 30天自制操作系统
 
-## Windows
+### Windows
 
 - [ ] [Windows Internals](https://docs.microsoft.com/en-us/sysinternals/resources/windows-internals)
 - [ ] [Developing Drivers with Windows Driver Foundation](https://docs.microsoft.com/en-us/windows-hardware/drivers/wdf/developing-drivers-with-wdf)
@@ -145,15 +145,11 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [elfboot](https://github.com/croemheld/elfboot)
 * [Rufus](https://github.com/pbatard/rufus)
 * [Ventoy](https://github.com/ventoy/Ventoy)
-* [MS DOS](https://github.com/microsoft/MS-DOS)
 * [Biscuit research OS](https://github.com/mit-pdos/biscuit)
-* [WSL2](https://github.com/microsoft/WSL2-Linux-Kernel)
 * [Boot OS](https://github.com/nanochess/bootOS)
 * [IncludeOS](https://github.com/includeos/IncludeOS)
 * [BareMetal-OS-legacy](https://github.com/ReturnInfinity/BareMetal-OS-legacy)
 * [darwin-xnu](https://github.com/apple/darwin-xnu)
-* [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
-* [Reactos](https://github.com/reactos/reactos)
 * [FreeBSD](https://github.com/freebsd/freebsd)
 * [OpenBSD](https://www.openbsd.org/)
 * [Minix 3](http://gerrit.minix3.org)
@@ -187,6 +183,13 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [copy.S](https://github.com/torvalds/linux/blob/master/arch/x86/boot/copy.S)
 * [sched.h](https://github.com/torvalds/linux/blob/master/include/linux/sched.h)
 * [mem.c](https://github.com/torvalds/linux/blob/master/drivers/char/mem.c)
+
+### Windows
+
+* [MS DOS](https://github.com/microsoft/MS-DOS)
+* [WSL2](https://github.com/microsoft/WSL2-Linux-Kernel)
+* [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
+* [ReactOS](https://github.com/reactos/reactos)
 
 ### Shell
 
