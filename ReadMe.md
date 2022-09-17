@@ -198,6 +198,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [zsh](https://github.com/zsh-users/zsh)
 * [PowerShell](https://github.com/PowerShell/PowerShell)
 * [Microsoft Terminal](https://github.com/microsoft/terminal)
+* [Fluent Terminal](https://github.com/felixse/FluentTerminal)
 
 ### Emulator
 
