@@ -93,8 +93,10 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 
 - [ ] [Harvard CS 61: Systems Programming and Machine Organization - WeensyOS](https://cs61.seas.harvard.edu/site/2019/)
 - [ ] [Harvard CS 161: Operating Systems - Chickadee OS](https://read.seas.harvard.edu/cs161/2020/)
-- [ ] [MIT 6.S081 2020: Operating System Engineering - xv6-riscv](https://pdos.csail.mit.edu/6.828/2020/)
-- [ ] [MIT 6.S081 2018: Operating System Engineering - xv6-x86](https://pdos.csail.mit.edu/6.828/2018/)
+- [ ] [MIT 6.S081 2020: Operating System Engineering - xv6-riscv](https://pdos.csail.mit.edu/6.S081/2020/)
+- [ ] [MIT 6.S081 2018: Operating System Engineering - xv6-x86](https://pdos.csail.mit.edu/6.S081/2018/)
+- [ ] [MIT 6.828 2020: Operating System Engineering - xv6-riscv](https://pdos.csail.mit.edu/6.828/2020/)
+- [ ] [MIT 6.828 2018: Operating System Engineering - xv6-x86](https://pdos.csail.mit.edu/6.828/2018/)
 - [ ] [Stanford CS 140: Operating Systems - PintOS](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring20/index.php)
 - [ ] [THU Operating Systems - rCore OS](http://os.cs.tsinghua.edu.cn/oscourse/OS2020spring)
 - [ ] [Udacity: GT Introduction to Operating Systems](https://www.udacity.com/course/introduction-to-operating-systems--ud923)
