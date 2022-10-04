@@ -145,6 +145,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [zCore](https://github.com/rcore-os/zCore)
 * [Redox](https://github.com/redox-os/redox)
 * [Chromium OS](https://www.chromium.org/chromium-os/)
+* [Fuchsia](https://fuchsia.dev/)
 * [webOS](https://github.com/webosose)
 * [elfboot](https://github.com/croemheld/elfboot)
 * [Rufus](https://github.com/pbatard/rufus)
