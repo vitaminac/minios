@@ -98,7 +98,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] [MIT 6.828 2020: Operating System Engineering - xv6-riscv](https://pdos.csail.mit.edu/6.828/2020/)
 - [ ] [MIT 6.828 2018: Operating System Engineering - xv6-x86](https://pdos.csail.mit.edu/6.828/2018/)
 - [ ] [Stanford CS 140: Operating Systems - PintOS](http://web.stanford.edu/~ouster/cgi-bin/cs140-spring20/index.php)
-- [ ] [THU Operating Systems - rCore OS](http://os.cs.tsinghua.edu.cn/oscourse/OS2020spring)
 - [ ] [Udacity: GT Introduction to Operating Systems](https://www.udacity.com/course/introduction-to-operating-systems--ud923)
 - [ ] [Udacity: GT Refresher - Advanced OS](https://www.udacity.com/course/gt-refresher-advanced-os--ud098)
 - [ ] [Udacity: GT Advanced Operating Systems](https://www.udacity.com/course/advanced-operating-systems--ud189)
@@ -142,6 +141,8 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [rCore](https://github.com/rcore-os/rCore)
+* [zCore](https://github.com/rcore-os/zCore)
 * [Redox](https://github.com/redox-os/redox)
 * [Chromium OS](https://www.chromium.org/chromium-os/)
 * [webOS](https://github.com/webosose)
