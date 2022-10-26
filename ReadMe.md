@@ -166,8 +166,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [FreeRTOS](https://github.com/FreeRTOS/FreeRTOS)
 * [LiteOS](https://gitee.com/LiteOS)
 * [AliOS](https://github.com/alibaba/AliOS-Things)
-* [ROS](https://github.com/ros/ros)
-* [ROS2](https://github.com/ros2/ros2)
 * [OpenRC](https://github.com/OpenRC/openrc)
 * [Hurlex II](https://github.com/hurley25/Hurlex-II)
 * [TedkOS](https://github.com/TakefiveInteractive/TedkOS)
