@@ -212,6 +212,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [VirtualBox](https://www.virtualbox.org/)
 * [VMware Workstation Pro](https://www.vmware.com/products/workstation-pro.html)
 * [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/)
+* [libvirt](https://gitlab.com/libvirt/libvirt)
 
 ## Reference
 
