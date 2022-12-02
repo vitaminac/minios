@@ -141,6 +141,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 ## Source Code
 
 * [Linux 0.01](https://mirrors.edge.kernel.org/pub/linux/kernel/Historic/)
+* [FreeDOS](https://www.freedos.org/)
 * [rCore](https://github.com/rcore-os/rCore)
 * [zCore](https://github.com/rcore-os/zCore)
 * [Redox](https://github.com/redox-os/redox)
