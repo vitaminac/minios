@@ -195,15 +195,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [ReactOS](https://github.com/reactos/reactos)
 
-### Shell
-
-* [Busybox](https://git.busybox.net/busybox/)
-* [Bash](https://www.gnu.org/software/bash/)
-* [zsh](https://github.com/zsh-users/zsh)
-* [PowerShell](https://github.com/PowerShell/PowerShell)
-* [Microsoft Terminal](https://github.com/microsoft/terminal)
-* [Fluent Terminal](https://github.com/felixse/FluentTerminal)
-
 ### Emulator
 
 * [QEMU](https://www.qemu.org/)
