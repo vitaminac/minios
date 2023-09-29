@@ -102,6 +102,7 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 - [ ] [Udacity: GT Refresher - Advanced OS](https://www.udacity.com/course/gt-refresher-advanced-os--ud098)
 - [ ] [Udacity: GT Advanced Operating Systems](https://www.udacity.com/course/advanced-operating-systems--ud189)
 - [ ] [Udacity: GT Embedded Systems](https://www.udacity.com/course/embedded-systems--ud169)
+- [ ] [MIT 6.5840: Distributed Systems](https://pdos.csail.mit.edu/6.824/)
 - [ ] [UIC CS385: Operating Systems](https://cs385.class.uic.edu/)
 - [ ] [操作系统原理(Operating Systems)](https://www.coursera.org/learn/os-pku)
 - [ ] [Carnegie Mellon 15-410: Operating System Design and Implementation](https://www.cs.cmu.edu/~410/)
