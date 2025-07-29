@@ -199,14 +199,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 
 * [Docker-OSX](https://github.com/sickcodes/Docker-OSX)
 
-### Emulator
-
-* [QEMU](https://www.qemu.org/)
-* [Bochs](http://bochs.sourceforge.net/)
-* [KVM](https://www.linux-kvm.org)
-* [Unicorn Engine](https://github.com/unicorn-engine/unicorn)
-* [libvirt](https://gitlab.com/libvirt/libvirt)
-
 ## Reference
 
 * [OS Dev](https://wiki.osdev.org)
