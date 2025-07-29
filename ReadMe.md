@@ -195,10 +195,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [Windows Research Kernel WRK v1.2](http://gate.upm.ro/os/LABs/Windows_OS_Internals_Curriculum_Resource_Kit-ACADEMIC/WindowsResearchKernel-WRK/)
 * [ReactOS](https://github.com/reactos/reactos)
 
-### OSX
-
-* [Docker-OSX](https://github.com/sickcodes/Docker-OSX)
-
 ## Reference
 
 * [OS Dev](https://wiki.osdev.org)
