@@ -148,8 +148,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 * [Fuchsia](https://fuchsia.dev/)
 * [webOS](https://github.com/webosose)
 * [elfboot](https://github.com/croemheld/elfboot)
-* [Rufus](https://github.com/pbatard/rufus)
-* [Ventoy](https://github.com/ventoy/Ventoy)
 * [SerenityOS](https://github.com/SerenityOS/serenity)
 * [Biscuit research OS](https://github.com/mit-pdos/biscuit)
 * [Boot OS](https://github.com/nanochess/bootOS)
