@@ -114,11 +114,10 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 
 ## Book
 
-- [ ] [Computer Systems: A Programmer's Perspective](https://csapp.cs.cmu.edu/)
 - [ ] [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
+- [ ] Operating System Concepts
 - [ ] [Operating Systems: Principles and Practice](http://ospp.cs.washington.edu/)
 - [ ] Operating Systems: Internals and Design Principles
-- [ ] Operating System Concepts
 - [ ] The Design of the UNIX Operating System
 - [ ] Understanding The Linux Kernel
 - [ ] Linux Kernel Development
