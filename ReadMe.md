@@ -114,9 +114,6 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 
 ## Book
 
-- [ ] The Essentials of Computer Organization and Architecture
-- [ ] Operating Systems: Design and Implementation
-- [ ] Modern Operating Systems
 - [ ] 一个64位操作系统的设计与实现
 - [ ] 30天自制操作系统
 
