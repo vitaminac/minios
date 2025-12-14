@@ -114,19 +114,17 @@ You can access the remote desktop with VNC viewer connecting to "\<your-linux-vi
 
 ## Book
 
-- [ ] [Operating Systems: Three Easy Pieces](http://pages.cs.wisc.edu/~remzi/OSTEP/)
-- [ ] Operating System Concepts
-- [ ] [Operating Systems: Principles and Practice](http://ospp.cs.washington.edu/)
-- [ ] Operating Systems: Internals and Design Principles
-- [ ] The Design of the UNIX Operating System
-- [ ] Understanding The Linux Kernel
-- [ ] Linux Kernel Development
 - [ ] The Essentials of Computer Organization and Architecture
 - [ ] Operating Systems: Design and Implementation
 - [ ] Modern Operating Systems
-- [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 - [ ] 一个64位操作系统的设计与实现
 - [ ] 30天自制操作系统
+
+### Linux
+
+- [ ] Understanding The Linux Kernel
+- [ ] Linux Kernel Development
+- [ ] [Linux Device Drivers](https://lwn.net/Kernel/LDD3/)
 
 ### Windows
 
